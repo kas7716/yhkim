@@ -130,7 +130,7 @@ ul, ol { list-style: none; }
 .underline path, .circled path { fill: none; stroke: var(--red); stroke-width: 6px; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 0.9s 0.9s ease-out forwards; }
 @keyframes draw { to { stroke-dashoffset: 0; } }
 .byline { display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem; border-block: var(--hair); padding-block: 0.5rem; margin-block: 1.3rem 1.1rem; }
-.story-text { columns: 2; column-gap: 1.8rem; column-rule: 1px solid rgba(22, 20, 18, 0.3); text-align: justify; hyphens: auto; }
+.story-text { columns: 2; column-gap: 1.8rem; column-rule: 1px solid rgba(22, 20, 18, 0.3); text-align: left; hyphens: manual; text-wrap: pretty; }
 .story-text p + p { text-indent: 1.2em; }
 .story-text p:first-child::first-letter { float: left; font-weight: 900; font-variation-settings: "SOFT" 100, "WONK" 1; font-size: 4.1em; line-height: 0.78; padding: 0.06em 0.08em 0 0; }
 .inside { margin-top: 1.6rem; border-top: var(--thick); padding-top: 0.6rem; }
@@ -192,7 +192,7 @@ ul, ol { list-style: none; }
 
 /* Three columns */
 .columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: var(--hair); }
-.column { padding: clamp(1.2rem, 2.4vw, 2rem) clamp(1rem, 2vw, 1.8rem) clamp(1.4rem, 2.6vw, 2.2rem); border-left: var(--hair); text-align: justify; hyphens: auto; }
+.column { padding: clamp(1.2rem, 2.4vw, 2rem) clamp(1rem, 2vw, 1.8rem) clamp(1.4rem, 2.6vw, 2.2rem); border-left: var(--hair); text-align: left; text-wrap: pretty; }
 .column:first-child { border-left: 0; padding-left: 0; }
 .column:last-child { padding-right: 0; }
 .column h3 { font-weight: 900; font-variation-settings: "SOFT" 100, "WONK" 1; font-size: clamp(1.5rem, 2.4vw, 2.2rem); line-height: 1; letter-spacing: -0.03em; margin-block: 0.4rem 0.7rem; text-align: left; }
