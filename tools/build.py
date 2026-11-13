@@ -141,8 +141,9 @@ STORIES = [
         ],
         "pull": "Not knowing the order is the real stress.",
         "gallery": [
-            "## Try the prototype",
-            ("embed",),
+            # Turn on once the Figma prototype is public (no password):
+            # "## Try the prototype",
+            # ("embed",),
             "## Getting started",
             ("phones", [("Splash", "assets/work/first7/screen-01-splash.png"), ("Welcome", "assets/work/first7/screen-02-welcome.png"), ("Choose a city", "assets/work/first7/screen-03-choose-city.png"), ("Choose a profile", "assets/work/first7/screen-04-choose-profile.png")]),
             "## Seven days, one at a time",
