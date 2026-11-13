@@ -381,7 +381,7 @@ def page_home():
         <p class="cover__note pen" aria-hidden="true"><svg viewBox="0 0 60 40"><path d="M56 6 C 40 4, 18 10, 6 30 M6 30 l2 -11 M6 30 l11 -3"/></svg>that's me</p>
         <div class="scraps">{scraps}</div>
       </figure>
-      <p class="credit stage__hint">Move your cursor over the newspaper to see who is behind it. The clippings are loose too: grab one and throw it. Newspaper photo made with Higgsfield.</p>
+      <p class="credit stage__hint">Move your cursor over the newspaper to see who is behind it. The clippings are loose too: grab one and throw it. Photo illustration made with Higgsfield.</p>
     </div>
   </section>
 
