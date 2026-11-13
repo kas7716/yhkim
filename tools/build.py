@@ -258,6 +258,57 @@ STORIES = [
         ],
     },
     {
+        "slug": "k-sip", "img": "assets/work/ksip/lead.jpg", "lead": "assets/work/ksip/lead.jpg", "color": True, "page": "B3",
+        "credit": "K-Sip hi-fi prototype: landing page, product list, product detail and age verification.",
+        "title": "K-Sip to Taste Together", "short": "K-Sip and Taste Together",
+        "kind": "UI/UX and business model", "when": "BCIT, 2026",
+        "deck": "A Korean spirits marketplace I designed and tested, and the party kit business it grew into.",
+        "status": "",
+        "facts": [("Discipline", "UI/UX design, usability testing, business model"), ("Courses", "MDIA 2540 UI/UX Strategy 1, Enterprise, MDIA 4150 Online Store, BCIT"), ("Team", "Solo"), ("Tools", "Figma, Maze")],
+        "sections": [
+            ("The problem", [
+                "Korean traditional liquor is hard to buy if you do not read Korean. Existing platforms are built for the Korean market and use terms that mean little to someone outside it.",
+                "K-Sip is a curated marketplace for people in Canada who want to explore Korean spirits. It describes soju, makgeolli and baekseju the way people already know wine: body, dryness, sweetness. It also suggests food pairings.",
+            ], []),
+            ("Persona and scenario", [
+                "Soohyun, a Korean Canadian graphic designer in Vancouver, is hosting dinner for her colleagues. She wants to serve a Korean spirit with steak but cannot explain the flavours in English. She picks \"Steak\", finds an oak aged soju, reads \"Woody, Smooth\", and adds it to her cart.",
+            ], []),
+            ("Design", [
+                "I mapped the user flow, drew lo-fi wireframes for four screens, and built a hi-fi prototype in Figma. The style guide uses a near black background, an electric lime accent and flavour profile bars, so each bottle reads at a glance.",
+            ], []),
+            ("Testing with Maze", [], [
+                ("Task", "Find a Korean spirit that pairs well with steak and add it to the cart."),
+                ("Success", "All 7 participants completed the task. 100 percent success, 0 percent drop off, 29.4 seconds on average."),
+                ("Satisfaction", "4.8 out of 5 for \"How easy was it to find a product that matched your needs?\""),
+                ("Misclicks", "A 42.5 percent misclick rate, which needed a closer look."),
+            ]),
+            ("What the misclicks meant", [
+                "The heatmap showed people tapping product cards that did nothing. Only the first card had prototype interactions, so every other tap counted as a misclick. The problem was my prototype, not the layout.",
+                "I linked every product card to its detail screen after the test. I also noted two limits for the next round: the food pairing filter was not interactive, and testers never reached the age verification step.",
+            ], []),
+            ("From K-Sip to Taste Together", [
+                "In my Enterprise course I developed the idea into a business model, and in MDIA 4150 I reshaped it into Taste Together: an online store for people who host home parties with friends from different cultures.",
+                "The host sends one party link. Each guest takes a short taste quiz, and the site suggests a menu and party kits for the whole group, including low and no alcohol options. Selling liquor in BC needs a licence, so the store sells mixer kits, snack boxes and meal kits, and leaves alcohol to licensed stores.",
+                "This is a concept. The competitor scores and costs in the plan are planning assumptions, not survey or sales data.",
+            ], []),
+        ],
+        "pull": "The problem was my prototype, not the layout.",
+        "gallery": [
+            "## K-Sip prototype",
+            ("Hi-fi screens: landing page, product list, product detail, age verification", "is-full", "assets/work/ksip/screens.jpg"),
+            ("User flow", "is-half", "assets/work/ksip/user-flow.jpg"),
+            ("Lo-fi wireframes", "is-half", "assets/work/ksip/wireframes.jpg"),
+            ("Style guide: colour, type and components", "is-full", "assets/work/ksip/style-guide.jpg"),
+            "## Usability test",
+            ("Task results from 7 participants", "is-half", "assets/work/ksip/results.jpg"),
+            ("Satisfaction: 4.8 out of 5", "is-half", "assets/work/ksip/satisfaction.jpg"),
+            ("Misclick heatmap on the product list", "is-full", "assets/work/ksip/heatmap.jpg"),
+            "## Taste Together",
+            ("Lean canvas. Figures are planning assumptions.", "is-half", "assets/work/ksip/lean-canvas.jpg"),
+            ("Perceptual map. Scores are my own estimates, not survey results.", "is-half", "assets/work/ksip/perceptual-map.jpg"),
+        ],
+    },
+    {
         "slug": "xbox-launch-campaign", "img": "assets/img/xbox.jpg", "page": "C1",
         "title": "Xbox Series X|S launch campaign", "short": "Xbox launch campaign",
         "kind": "Graphic design", "when": "Korea, 2020",
@@ -280,7 +331,7 @@ STORIES = [
     },
 ]
 
-HELD = [("Taste Together", "Business model"), ("Fruity Lab", "Brand identity")]
+HELD = [("Fruity Lab", "Brand identity")]
 
 EXPERIENCE = [
     ("Now", "New Media Design and Web Development, BCIT", "Full time student in Vancouver, building this portfolio toward an internship."),
