@@ -111,7 +111,8 @@ STORIES = [
     {
         "slug": "first7", "img": "assets/work/first7/lead.jpg", "lead": "assets/work/first7/lead.jpg", "thumb": "assets/img/first7.jpg", "color": True, "page": "A3",
         "credit": "First7 screens: home, 7 day checklist, a task page, Overwhelmed Mode and progress.",
-        "link": ("Open the Figma prototype", "https://proto-comet-93806396.figma.site"),
+        "link": ("Open the Figma prototype", "https://www.figma.com/proto/ekKxzUBF2tVrDfsPWYJ2eF?node-id=3-2&t=S9xN2m0A33PnWmz0-6"),
+        "embed": "https://embed.figma.com/proto/ekKxzUBF2tVrDfsPWYJ2eF?node-id=3-2&embed-host=share&scaling=scale-down&content-scaling=fixed&hide-ui=1",
         "title": "First7", "short": "First7",
         "kind": "UI/UX", "when": "BCIT",
         "deck": "A mobile app that helps international students and newcomers get through their first seven days in Canada, one day at a time.",
@@ -140,6 +141,8 @@ STORIES = [
         ],
         "pull": "Not knowing the order is the real stress.",
         "gallery": [
+            "## Try the prototype",
+            ("embed",),
             "## Getting started",
             ("phones", [("Splash", "assets/work/first7/screen-01-splash.png"), ("Welcome", "assets/work/first7/screen-02-welcome.png"), ("Choose a city", "assets/work/first7/screen-03-choose-city.png"), ("Choose a profile", "assets/work/first7/screen-04-choose-profile.png")]),
             "## Seven days, one at a time",
@@ -384,6 +387,9 @@ def page_story(i):
     facts = "".join(f"<div><dt>{e(a)}</dt><dd>{e(b)}</dd></div>" for a, b in s["facts"])
     gal = ""
     for g in s["gallery"]:
+        if isinstance(g, tuple) and g[0] == "embed":
+            gal += f'<div class="proto"><iframe src="{e(s["embed"])}" title="{e(s["title"])} prototype in Figma" loading="lazy" allowfullscreen></iframe><p class="credit">Tap through the live Figma prototype. If it does not load, <a href="{e(s["link"][1])}" rel="noopener">open it in Figma</a>.</p></div>'
+            continue
         if isinstance(g, tuple) and g[0] == "phones":
             gal += '<div class="phones">' + "".join(f'<figure class="phone"><a href="{img}" aria-label="Open {e(cap)} full size"><img src="{img}" alt="{e(cap)}" loading="lazy" width="390" height="844"></a><figcaption class="credit">{e(cap)}</figcaption></figure>' for cap, img in g[1]) + '</div>'
             continue

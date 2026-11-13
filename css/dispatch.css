@@ -340,3 +340,7 @@ ul, ol { list-style: none; }
 .phone a:hover img, .phone a:focus-visible img { transform: translateY(-6px); }
 @media (max-width: 900px) { .phones { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (prefers-reduced-motion: reduce) { .phone img { transition: none; } }
+
+/* Live prototype */
+.proto { grid-column: 1 / -1; display: grid; justify-items: center; gap: 0.6rem; padding-block: 0.5rem 1rem; }
+.proto iframe { width: min(100%, 26rem); aspect-ratio: 390 / 844; border: 0; border-radius: 1.8rem; background: var(--sheet); box-shadow: 0 30px 46px -26px rgba(22, 20, 18, 0.75); }
