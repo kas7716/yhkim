@@ -207,7 +207,7 @@ STORIES = [
         ],
     },
     {
-        "slug": "servesmart", "img": "assets/work/servesmart/lead.jpg", "lead": "assets/work/servesmart/lead.jpg", "color": True, "page": "B2",
+        "slug": "servesmart", "img": "assets/work/servesmart/lead.jpg", "thumb": "assets/img/servesmart.jpg", "lead": "assets/work/servesmart/lead.jpg", "color": True, "page": "B2",
         "credit": "ServeSmart running in the iOS simulator: menu, dish detail, ingredient guide, reference and saved dishes.",
         "title": "ServeSmart", "short": "ServeSmart",
         "kind": "Mobile app", "when": "BCIT, 2026",
@@ -258,7 +258,7 @@ STORIES = [
         ],
     },
     {
-        "slug": "k-sip", "img": "assets/work/ksip/lead.jpg", "lead": "assets/work/ksip/lead.jpg", "color": True, "page": "B3",
+        "slug": "k-sip", "img": "assets/work/ksip/lead.jpg", "thumb": "assets/img/ksip.jpg", "lead": "assets/work/ksip/lead.jpg", "color": True, "page": "B3",
         "credit": "K-Sip hi-fi prototype: landing page, product list, product detail and age verification.",
         "title": "K-Sip to Taste Together", "short": "K-Sip and Taste Together",
         "kind": "UI/UX and business model", "when": "BCIT, 2026",
@@ -309,7 +309,7 @@ STORIES = [
         ],
     },
     {
-        "slug": "fruity-lab", "img": "assets/work/fruitylab/lead.jpg", "lead": "assets/work/fruitylab/lead.jpg", "color": True, "page": "B4",
+        "slug": "fruity-lab", "img": "assets/work/fruitylab/lead.jpg", "thumb": "assets/img/fruitylab.jpg", "lead": "assets/work/fruitylab/lead.jpg", "color": True, "page": "B4",
         "credit": "Fruity Lab style guide: logo lockups and the mood based colour system.",
         "title": "Fruity Lab", "short": "Fruity Lab",
         "kind": "Brand identity", "when": "BCIT",
@@ -532,9 +532,8 @@ def page_home():
       <div class="pic{' pic--color' if s.get('color') and not thumb_ok(s) else ''}"><img src="{s['thumb'] if thumb_ok(s) else s['img']}" alt="" loading="lazy"></div>
       <div><p class="kicker kicker--red">{e(s['kind'])}, {e(s['when'])}</p><h3 class="story__title"><span>{e(s['title'])}</span></h3><p class="story__deck">{e(s['deck'])}</p></div></a></li>
 """
-    rows = card(STORIES[0], "story--feature") + card(STORIES[1], "story--left") + card(STORIES[2], "story--right")
-    held = "".join(f'<span><a class="textlink" href="{x["slug"]}.html"><b>{e(x["short"])}</b></a> <span>{e(x["kind"])}</span></span>' for x in STORIES[3:])
-    held += "".join(f"<span><b>{e(t)}</b> <span>{e(k)}</span></span>" for t, k in HELD)
+    rows = card(STORIES[0], "story--feature") + "".join(card(s, "story--left" if i % 2 == 0 else "story--right") for i, s in enumerate(STORIES[1:]))
+    held = "".join(f"<span><b>{e(t)}</b> <span>{e(k)}</span></span>" for t, k in HELD)
     return head("", SITE["description"]) + top("home", inner=False) + f"""<main id="main">
   <section class="wrap front">
     <div class="lead">
@@ -559,7 +558,7 @@ def page_home():
   <section class="section wrap" id="work">
     <div class="section__head"><h2 class="section__title">In this edition</h2><p class="kicker">Selected work</p></div>
     <ul class="stories">
-{rows}      <li class="held"><span class="kicker kicker--red">Also in this edition</span>{held}</li>
+{rows}{'      <li class="held"><span class="kicker kicker--red">Also in this edition</span>' + held + '</li>' if held else ''}
     </ul>
   </section>
 
