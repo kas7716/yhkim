@@ -48,24 +48,64 @@ LEAD = [
 
 STORIES = [
     {
-        "slug": "banju", "img": "assets/img/banju.jpg", "page": "A2",
+        "slug": "banju", "img": "assets/work/banju/card.jpg", "lead": "assets/work/banju/lead.jpg", "color": True, "page": "A2",
+        "credit": "The Banju main menu: cover, signature page and the hot pot spread.",
         "title": "Banju menus and posters", "short": "Banju menus and posters",
-        "kind": "Graphic design", "when": "Vancouver",
-        "deck": "Menu and poster design for Banju, a Korean Japanese restaurant in downtown Vancouver.",
-        "status": "Developing story!",
-        "facts": [("Discipline", "Graphic design"), ("Client", "Banju, Vancouver"), ("Pieces", "Menus, posters"), ("Format", "Print")],
+        "kind": "Graphic design", "when": "Vancouver, 2026",
+        "deck": "A new main menu, lunch and night menus, a sandwich board and two event posters for Banju, a Korean Japanese restaurant in downtown Vancouver.",
+        "status": "",
+        "facts": [("Discipline", "Graphic design, print"), ("Client", "Banju, Vancouver"), ("Pieces", "Main, lunch and night menus, sandwich board, two posters"), ("Timeline", "May to October 2026"), ("Tools", "InDesign, Illustrator, Photoshop")],
         "sections": [
-            ("The assignment", [
-                "A menu is the one piece of design every guest reads from start to finish. It has to sell the kitchen, answer questions before they are asked, and survive a busy Friday night.",
-                "Banju is a Korean Japanese restaurant on Bute Street in downtown Vancouver. I designed its menus and the posters that promote them.",
+            ("The brief", [
+                "Banju asked me for a new main menu, a lunch menu, a night menu, a sandwich board for the sidewalk, and posters for two events: the World Cup and Halloween.",
+                "The old menu was made in Canva before the restaurant renewed its dishes. It listed the food, but it did not feel designed.",
             ], []),
-            ("What I made", [], [
-                ("Menus", "The restaurant's menu, designed to be read at the table."),
-                ("Posters", "Promotional posters for the room and the window."),
+            ("The problem", [
+                "I work at Banju, so I see guests order every day. Many of them are not Korean, and the dish names alone did not tell them what they would get. I often watched guests look dishes up on Google at the table.",
+                "Banju also has a very long menu. Showing every dish with a photo was not possible, so the real work was deciding which dishes deserved one.",
+            ], []),
+            ("My approach", [], [
+                ("Choose the signature dishes", "I picked the dishes that best represent Banju and gave them the large photos. Everything else is listed with a short English description."),
+                ("One concept per section", "I split the menu by category, such as signature dishes, bibimbap and noodles, grill and wok, anju, and sushi and sashimi, and gave each page its own layout. Dark stone backgrounds, serif headings and one price style keep the pages reading as one book."),
+                ("Shoot, edit and write", "I photographed and edited the food myself. The owners gave me descriptions in Korean, and I translated them into English, checking terms with research and AI tools so they stay consistent."),
             ]),
+            ("The hot pot spread", [
+                "Several signature dishes arrive at the table on a gas burner. I placed them across two facing pages so the pans run down both outer edges, with the flame showing under each one.",
+                "Keeping the spread clean while still making it obvious that these dishes come with a burner took more rounds of revision than any other page.",
+            ], []),
+            ("Revisions", [
+                "Banju has three owners, and dishes were added and removed throughout the project. Agreeing on the final menu took time, and I was studying full time at BCIT, so the work ran from May to October 2026.",
+                "The main menu has 16 pages today. Banju is still renewing its sides, drinks and alcohol, so two more pages are planned, for 18 in total.",
+            ], []),
+            ("Printing", [
+                "I built the print pieces in InDesign, with Illustrator and Photoshop for graphics and photos. Most pieces are printed at legal size on 28 lb paper. I made test prints at Staples before choosing the paper and size.",
+            ], []),
+            ("Posters and sandwich board", [
+                "The World Cup Night and Halloween posters promoted special event days. They went up outside and inside the restaurant and on social media. The sandwich board brings the signature dishes out to the sidewalk.",
+            ], []),
+            ("The result", [
+                "The menus are in use at Banju today. Before, most guests ordered from the QR code menu. Since the printed menus arrived, I have seen many more guests reading the physical menu.",
+            ], []),
         ],
-        "pull": "Designed to be held, seen and read.",
-        "gallery": [("Menu cover", "", ""), ("Menu spread", "is-wide", ""), ("Poster", "", ""), ("Poster", "", ""), ("In the restaurant", "", "")],
+        "pull": "The real work was deciding which dishes deserved a photo.",
+        "gallery": [
+            "## The main menu",
+            ("Cover", "is-third", "assets/work/banju/main-01.jpg"),
+            ("Appetizers", "is-third", "assets/work/banju/main-02.jpg"),
+            ("Signature dishes", "is-third", "assets/work/banju/main-03.jpg"),
+            ("The hot pot spread. Dishes served on a gas burner run down both outer edges.", "is-full", "assets/work/banju/main-hotpot-spread.jpg"),
+            ("Signature sashimi set", "is-third", "assets/work/banju/main-06.jpg"),
+            ("Bibimbap and noodles", "is-third", "assets/work/banju/main-07.jpg"),
+            ("Nigiri", "is-third", "assets/work/banju/main-15.jpg"),
+            ("Anju, dishes to share with drinks", "is-full", "assets/work/banju/main-anju-spread.jpg"),
+            "## Lunch and night",
+            ("Lunch menu, two pages", "is-full", "assets/work/banju/lunch-spread.jpg"),
+            ("Night menu", "is-half", "assets/work/banju/night.jpg"),
+            ("Sandwich board", "is-half", "assets/work/banju/a-board.jpg"),
+            "## Event posters",
+            ("World Cup Night", "is-half", "assets/work/banju/poster-world-cup.jpg"),
+            ("Halloween: Bloody Good Night", "is-half", "assets/work/banju/poster-halloween.jpg"),
+        ],
     },
     {
         "slug": "xbox-launch-campaign", "img": "assets/img/xbox.jpg", "page": "B1",
@@ -231,7 +271,7 @@ def page_home():
 
     def card(s, cls):
         return f"""    <li class="story {cls}"><a class="story__link" href="{s['slug']}.html">
-      <div class="pic"><img src="{s['img']}" alt="" loading="lazy"></div>
+      <div class="pic{' pic--color' if s.get('color') else ''}"><img src="{s['img']}" alt="" loading="lazy"></div>
       <div><p class="kicker kicker--red">{e(s['kind'])}, {e(s['when'])}</p><h3 class="story__title"><span>{e(s['title'])}</span></h3><p class="story__deck">{e(s['deck'])}</p></div></a></li>
 """
     rows = card(STORIES[0], "story--feature") + card(STORIES[1], "story--left") + card(STORIES[2], "story--right")
@@ -290,15 +330,25 @@ def page_story(i):
         if items:
             body += "<ul>" + "".join(f"<li><strong>{e(a)}</strong><span>{e(b)}</span></li>" for a, b in items) + "</ul>"
     facts = "".join(f"<div><dt>{e(a)}</dt><dd>{e(b)}</dd></div>" for a, b in s["facts"])
-    gal = "".join(frame(cap, cls, img) for cap, cls, img in s["gallery"])
+    gal = ""
+    for g in s["gallery"]:
+        if isinstance(g, str):
+            gal += f'<h2 class="gallery__title">{e(g[3:])}</h2>'
+        elif g[2].startswith("assets/work/"):
+            cap, cls, img = g
+            gal += f'<figure class="work {cls}"><a href="{img}" aria-label="Open {e(cap)} full size"><img src="{img}" alt="{e(cap)}" loading="lazy"></a><figcaption class="credit">{e(cap)}</figcaption></figure>'
+        else:
+            gal += frame(*g)
+    color = " pic--color" if s.get("color") else ""
+    status = f'<span class="status pen">{e(s["status"])}</span>' if s.get("status") else ""
     return head(s["title"], s["deck"]) + top("work") + f"""<main id="main">
   <article class="wrap">
     <header class="article__head">
       <div><a class="article__section kicker kicker--red" href="index.html#work">{e(s['kind'])}, {e(s['when'])}</a>
       <h1 class="article__title">{e(s['title'])}</h1></div>
-      <div><p class="article__deck">{e(s['deck'])}</p><span class="status pen">{e(s['status'])}</span></div>
+      <div><p class="article__deck">{e(s['deck'])}</p>{status}</div>
     </header>
-    <figure class="leadpic"><div class="pic"><img src="{s['img']}" alt=""></div><figcaption class="credit">{ILLUSTRATION}</figcaption></figure>
+    <figure class="leadpic"><div class="pic{color}"><img src="{s.get('lead', s['img'])}" alt="{e(s.get('credit', ''))}"></div><figcaption class="credit">{e(s.get('credit', ILLUSTRATION))}</figcaption></figure>
     <div class="article__body">
       <dl class="facts">{facts}</dl>
       <div class="prose">{body}</div>
