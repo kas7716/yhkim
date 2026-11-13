@@ -30,7 +30,7 @@ TICKER = [
     ("New in this edition: menus and posters for Banju", "banju.html"),
     ("First7, an app for your first week in Canada", "first7.html"),
     ("Xbox Series X|S launch campaign", "xbox-launch-campaign.html"),
-    ("Plant Box, a concept for first time plant owners", "plant-box.html"),
+    ("Rootly, a plant brand for nervous beginners", "rootly.html"),
 ]
 
 SCRAPS = [
@@ -158,25 +158,53 @@ STORIES = [
         ],
     },
     {
-        "slug": "plant-box", "img": "assets/img/plant.jpg", "page": "B1",
-        "title": "Plant Box", "short": "Plant Box",
-        "kind": "UI/UX concept", "when": "BCIT",
-        "deck": "A concept for a plant subscription box with a companion app, made for people keeping their first plant alive.",
-        "status": "Concept in progress!",
-        "facts": [("Discipline", "UI/UX and branding"), ("Type", "School concept"), ("My part", "Brand strategy, personas, interface"), ("Tools", "Figma, Illustrator")],
+        "slug": "rootly", "img": "assets/work/rootly/lead.jpg", "lead": "assets/work/rootly/lead.jpg", "thumb": "assets/img/plant.jpg", "color": True, "page": "B1",
+        "credit": "Rootly brand style guide: logo system and brand pattern.",
+        "title": "Rootly", "short": "Rootly",
+        "kind": "Brand identity", "when": "BCIT",
+        "deck": "A brand identity for a plant subscription box and companion app, made for young adults who want plants but are afraid of killing them.",
+        "status": "",
+        "facts": [("Discipline", "Brand identity"), ("Course", "MDIA 2166 Illustration for New Media, BCIT"), ("Team", "Solo: research, strategy, identity, logo, layout"), ("Client", "My instructor, in the client role"), ("Tools", "Illustrator")],
         "sections": [
-            ("The idea", [
-                "Plant Box pairs a monthly plant subscription with a companion app. The box delivers the plant. The app answers the question every beginner asks a week later: what is wrong with it?",
-                "This is a concept project. It has no customers and claims no results.",
+            ("The problem", [
+                "Young adults want plants but feel intimidated. They do not know where to start, and many have already lost a plant or two.",
+                "Rootly is a subscription box with a companion app: curated plants plus step by step care guidance. The audience is 20 to 28, often living alone, wellness minded, on TikTok and Instagram, and into slow living and sustainability.",
             ], []),
-            ("What I am making", [], [
-                ("Brand strategy", "Who the service is for and how it should sound."),
-                ("Personas", "The beginner plant owners the concept is built around."),
-                ("Interface", "App screens for care guidance and diagnosis."),
+            ("Research", [
+                "I compared The Sill, Bloomscape and Leon & George on audience, price, subscription, app, beginner focus, care guidance, community and tone. Some offer subscription boxes, but none combine delivery with a companion app for beginners. That gap became Rootly's position: not just a plant, but a full support system for first time plant parents.",
+            ], []),
+            ("Two directions", [], [
+                ("Soft Roots", "Organic, calm and earthy. Forest green, sage, linen and terracotta, with Lora and Inter. Its line: \"Grow slowly.\""),
+                ("Bold Bloom", "Bold, playful and energetic. Deep green, lime pop, cream, coral pop and black, with Sergio Trendy and Nunito Sans. Its line: \"Don't kill it.\""),
             ]),
+            ("The client's choice", [
+                "My instructor, acting as the client, chose Bold Bloom. Its high contrast and humour fit a Gen Z audience better than the quiet, earthy option.",
+                "Switching direction meant redesigning the logo and the whole palette, not just recolouring them.",
+            ], []),
+            ("The logo", [
+                "I explored three concepts: a serif wordmark, a script wordmark, and a leaf icon with a tagline. The client chose the icon with tagline. The leaf on a stem sits next to a bold serif wordmark, with \"Grow with confidence\" set in lime.",
+                "I built the leaf from ellipses, refined it with the pen tool, and combined shapes with Pathfinder. The final logo comes in four versions: horizontal, vertical, dark background and icon, exported as SVG and PNG for web, iOS and Android.",
+            ], []),
+            ("The system", [
+                "The style guide covers logo rules, colour pairings, typography rules, a rounded grid brand pattern saved as an Illustrator pattern swatch, and how the brand applies to the app. The pattern tile size took several rounds before it read boldly at full scale.",
+            ], []),
         ],
-        "pull": "Good care. Less guesswork.",
-        "gallery": [("Persona", "is-half", ""), ("App flow", "is-half", ""), ("Screens", "is-wide", ""), ("Packaging", "", "")],
+        "pull": "Don't kill it.",
+        "gallery": [
+            "## Research",
+            ("Competitive analysis: The Sill, Bloomscape, Leon & George and Rootly", "is-full", "assets/work/rootly/proposal-competitive.jpg"),
+            "## Two directions",
+            ("Idea A: Soft Roots", "is-half", "assets/work/rootly/proposal-soft-roots.jpg"),
+            ("Idea B: Bold Bloom, chosen by the client", "is-half", "assets/work/rootly/proposal-bold-bloom.jpg"),
+            "## Logo",
+            ("Three logo concepts. Option C, icon and tagline, was chosen.", "is-full", "assets/work/rootly/proposal-logo-concepts.jpg"),
+            "## Style guide",
+            ("Logo system", "is-half", "assets/work/rootly/style-logo.jpg"),
+            ("Colour", "is-half", "assets/work/rootly/style-colour.jpg"),
+            ("Typography", "is-half", "assets/work/rootly/style-typography.jpg"),
+            ("Brand pattern", "is-half", "assets/work/rootly/style-pattern.jpg"),
+            ("The brand in the app", "is-full", "assets/work/rootly/style-app.jpg"),
+        ],
     },
     {
         "slug": "xbox-launch-campaign", "img": "assets/img/xbox.jpg", "page": "C1",
