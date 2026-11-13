@@ -198,6 +198,33 @@
     it.el.addEventListener("click", function (e) { if (moved > 8) { e.preventDefault(); e.stopPropagation(); } }, true);
   });
 
+  /* The cursor stirs the clippings as it moves past them */
+  var lastX = null, lastY = null;
+  stage.addEventListener("pointermove", function (e) {
+    var r = stage.getBoundingClientRect();
+    var x = e.clientX - r.left, y = e.clientY - r.top;
+    if (lastX !== null && !held) {
+      var dx = x - lastX, dy = y - lastY;
+      var speed = Math.min(18, Math.sqrt(dx * dx + dy * dy));
+      if (speed > 0.5) {
+        for (var i = 0; i < items.length; i++) {
+          var b = items[i].body;
+          var ox = b.position.x - x, oy = b.position.y - y;
+          var dist = Math.sqrt(ox * ox + oy * oy);
+          var reach = Math.max(items[i].w, items[i].h) * 0.5 + 70;
+          if (dist < reach) {
+            var f = (1 - dist / reach) * speed * 0.12;
+            var nx = dist > 1 ? ox / dist : 0, ny = dist > 1 ? oy / dist : -1;
+            M.Body.setVelocity(b, { x: Math.max(-14, Math.min(14, b.velocity.x + Math.max(-18, Math.min(18, dx)) * 0.05 + nx * f)), y: Math.max(-14, Math.min(14, b.velocity.y + Math.max(-18, Math.min(18, dy)) * 0.05 + ny * f - f * 0.3)) });
+            M.Body.setAngularVelocity(b, b.angularVelocity + (dx > 0 ? 1 : -1) * f * 0.006);
+          }
+        }
+      }
+    }
+    lastX = x; lastY = y;
+  });
+  stage.addEventListener("pointerleave", function () { lastX = lastY = null; });
+
   var running = false, last = 0;
   function frame(now) {
     if (!running) return;
