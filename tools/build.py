@@ -356,13 +356,14 @@ STORIES = [
         "credit": "The Halo Infinite gift box, closed and open: mug, item card and mask.",
         "title": "Xbox Series X|S and the Halo Infinite gift set", "short": "Xbox and Halo gift set",
         "kind": "Graphic design and marketing", "when": "Korea, 2020 to 2021",
-        "deck": "A limited Halo Infinite gift set for 100 preorder customers and a sale page for Xbox Series X|S, made while I worked on the Xbox team at a Microsoft distributor in Korea.",
+        "deck": "A limited Halo Infinite gift set for 100 preorder customers and a sale page for Xbox Series X|S, made while I was the product manager for Xbox digital games at a Microsoft distributor in Korea.",
         "status": "",
-        "facts": [("Discipline", "Graphic design, packaging, marketing"), ("Context", "Xbox team at a Microsoft distributor, Korea"), ("My role", "Junior team member: design and production of the gift set, promotional design"), ("Pieces", "Gift box, mug, masks, item cards, sale page"), ("Edition", "100 gift sets")],
+        "facts": [("Discipline", "Graphic design, packaging, marketing"), ("Context", "Xbox team at a Microsoft distributor, Korea"), ("My role", "Product manager, Xbox C2C (digital games): gift set design and production, promotional design"), ("Pieces", "Gift box, mug, masks, item cards, sale page"), ("Edition", "100 gift sets")],
         "sections": [
-            ("Where I started", [
-                "I joined the Xbox team at a Microsoft distributor in Korea as its most junior member. I learned marketing and sales on the job while Xbox Series X and Series S came to market.",
-                "Much of the work was operational. In one quarter of 2020 I produced 157 product detail pages and thumbnails for Xbox digital titles, along with pop up pages and point of purchase displays for retail events.",
+            ("My role", [
+                "I was the product manager for Xbox C2C, the digital game category, at a Microsoft distributor in Korea. In Korea, Xbox products reach stores through distributors. When a retailer such as Hi-Mart, Naver Store, Emart or Interpark sold a game, the code request came to us, and we requested it from Microsoft.",
+                "For each new game I registered the SKU, worked out cost and margin, and sold it on to retailers. I scheduled new releases, prepared promotions for the headline titles, and tracked which games sold, which ones we should push, and why some were slow. It was sales and marketing at the same time.",
+                "I was also the youngest on the team when Xbox Series X and Series S arrived, so I learned launch marketing and sales by taking part. In one quarter of 2020 I produced 157 product detail pages and thumbnails for digital titles, along with pop up pages and point of purchase displays for retail events.",
             ], []),
             ("The gift set", [
                 "Halo Infinite was the headline game for the new consoles, so we made a Halo gift for customers who preordered a console. It was limited to 100 people.",
@@ -404,7 +405,7 @@ HELD = []
 EXPERIENCE = [
     ("Now", "New Media Design and Web Development, BCIT", "Full time student in Vancouver, building this portfolio toward an internship."),
     ("2022 to 2023", "Project manager, BrandworksKorea", "Overseas sourcing team at a CJ ENM affiliate in Seoul."),
-    ("2019 to 2022", "Product manager for Xbox", "At a Microsoft distributor in Korea, through the launch of Xbox Series X and Series S."),
+    ("2019 to 2022", "Product manager, Xbox C2C (digital games)", "At a Microsoft distributor in Korea. Sales and marketing for Xbox digital games across retailers, through the arrival of Xbox Series X and Series S."),
 ]
 # ─────────────────────── END CONTENT ───────────────────────
 
