@@ -211,6 +211,11 @@ EXPERIENCE = [
 # ─────────────────────── END CONTENT ───────────────────────
 
 e = html.escape
+
+
+def asset_v(path):
+    import hashlib
+    return hashlib.md5((ROOT / path).read_bytes()).hexdigest()[:8]
 SCRIBBLE = '<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 6 C 18 1, 30 9, 48 5 S 80 2, 99 6"/></svg>'
 CIRCLE = '<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M8 22 C 6 6, 40 2, 62 3 S 98 10, 94 24 S 60 39, 36 37 S 2 34, 6 16"/></svg>'
 
@@ -233,7 +238,7 @@ def head(title, desc):
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/dispatch.css">
+<link rel="stylesheet" href="css/dispatch.css?v={asset_v("css/dispatch.css")}">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -302,7 +307,7 @@ def foot(matter=False):
   </div>
 </footer>
 {'<script src="js/matter.min.js" defer></script>' if matter else ''}
-<script src="js/main.js" defer></script>
+<script src="js/main.js?v={asset_v("js/main.js")}" defer></script>
 </body>
 </html>
 """
