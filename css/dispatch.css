@@ -331,3 +331,12 @@ ul, ol { list-style: none; }
   .leadpic .pic--color { aspect-ratio: 2 / 1; }
 }
 @media (prefers-reduced-motion: reduce) { .work img { transition: none; } }
+
+/* Phone screens */
+.phones { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(1rem, 2.4vw, 2rem); }
+.phone { max-width: 22rem; }
+.phone a { display: block; cursor: zoom-in; }
+.phone img { width: 100%; height: auto; border-radius: 1.6rem; box-shadow: 0 22px 34px -22px rgba(22, 20, 18, 0.7); transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.phone a:hover img, .phone a:focus-visible img { transform: translateY(-6px); }
+@media (max-width: 900px) { .phones { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (prefers-reduced-motion: reduce) { .phone img { transition: none; } }

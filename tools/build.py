@@ -28,6 +28,7 @@ ILLUSTRATION = "Illustration made with Higgsfield. Photographs of the work arriv
 TICKER = [
     ("Diana Kim is open to internship placements in Vancouver", "about.html#contact"),
     ("New in this edition: menus and posters for Banju", "banju.html"),
+    ("First7, an app for your first week in Canada", "first7.html"),
     ("Xbox Series X|S launch campaign", "xbox-launch-campaign.html"),
     ("Plant Box, a concept for first time plant owners", "plant-box.html"),
 ]
@@ -108,28 +109,53 @@ STORIES = [
         ],
     },
     {
-        "slug": "xbox-launch-campaign", "img": "assets/img/xbox.jpg", "page": "B1",
-        "title": "Xbox Series X|S launch campaign", "short": "Xbox launch campaign",
-        "kind": "Graphic design", "when": "Korea, 2020",
-        "deck": "A gift set, posters and banners for the launch of Xbox Series X and Series S in Korea, made while I was the product manager on the brand.",
-        "status": "Developing story!",
-        "facts": [("Discipline", "Graphic design"), ("Context", "Console launch, Korea"), ("Pieces", "Gift set, posters, banners"), ("Year", "2020")],
+        "slug": "first7", "img": "assets/work/first7/lead.jpg", "lead": "assets/work/first7/lead.jpg", "thumb": "assets/img/first7.jpg", "color": True, "page": "A3",
+        "credit": "First7 screens: home, 7 day checklist, a task page, Overwhelmed Mode and progress.",
+        "link": ("Open the Figma prototype", "https://proto-comet-93806396.figma.site"),
+        "title": "First7", "short": "First7",
+        "kind": "UI/UX", "when": "BCIT",
+        "deck": "A mobile app that helps international students and newcomers get through their first seven days in Canada, one day at a time.",
+        "status": "",
+        "facts": [("Discipline", "UI/UX design, brand"), ("Course", "UI/UX Strategy 2, BCIT"), ("Team", "Diana Kim, Gigi, Daisy"), ("My role", "Designer: all design deliverables"), ("Tools", "Figma, Illustrator")],
         "sections": [
-            ("The assignment", [
-                "Xbox Series X and Series S launched in Korea while I was the product manager for Xbox at a Microsoft distributor.",
-                "A launch plan lives in spreadsheets. A launch itself lives in the things people see and hold, so alongside the planning I worked on the campaign's visual pieces.",
+            ("The problem", [
+                "International students and newcomers arrive tired, jet lagged and often reading in a second language. Everything is urgent at once: a SIM card, transit, a bank account, groceries, a health card, emergency contacts.",
+                "Not knowing the order is the real stress.",
             ], []),
-            ("What I made", [], [
-                ("Gift set", "A boxed set prepared for the launch."),
-                ("Posters", "Launch posters for the campaign."),
-                ("Banners", "Banners carrying the campaign across channels."),
+            ("My role", [
+                "I was the designer on a team of three with Gigi and Daisy. We did the research together, and I ran a survey with people in my own network. I made all of the design deliverables: the wireframes, the Figma prototype, the design system and components, the logo and brand style guide, and the presentation slides.",
+            ], []),
+            ("The idea", [
+                "First7 turns an overwhelming pile into a sequence: one day, a few tasks, visible progress. After choosing a city and a profile (international student, newcomer or temporary worker), the user gets a seven day plan. Day 1 is getting connected, then transit, banking and SIN, ID and health coverage, school and city resources, community support, and a review of next steps.",
+            ], []),
+            ("Design decisions", [], [
+                ("The 7 day track", "The one element the product is remembered by. Seven nodes, always: filled is done, ringed is today, hollow is ahead. It sits once at the top of the screen."),
+                ("Overwhelmed Mode", "When it is all too much, the plan shrinks to three things for today: get connected, get around, stay safe."),
+                ("Plain words", "\"Open a bank account\", not \"Financial onboarding\". Every screen answers two questions: what do I do today, and how long will it take?"),
+                ("A friend, not a portal", "The brand should feel like a friend who already lives here: warm, calm and specific. The logo is a 7 drawn as a route, with a dot marking day one."),
             ]),
+            ("Accessibility", [
+                "I wrote accessibility rules into the style guide. Every colour is checked against WCAG 2.1 AA, status is never shown by colour alone, touch targets are at least 44 by 44, layouts survive 200 percent text size, motion respects reduced motion settings, and copy is plain English with no abbreviations that assume local knowledge.",
+            ], []),
         ],
-        "pull": "Before the screen, there was the business brief.",
-        "gallery": [("Gift set", "", ""), ("Launch poster", "", ""), ("Banner", "", ""), ("Campaign in place", "is-wide", ""), ("Detail", "", "")],
+        "pull": "Not knowing the order is the real stress.",
+        "gallery": [
+            "## Getting started",
+            ("phones", [("Splash", "assets/work/first7/screen-01-splash.png"), ("Welcome", "assets/work/first7/screen-02-welcome.png"), ("Choose a city", "assets/work/first7/screen-03-choose-city.png"), ("Choose a profile", "assets/work/first7/screen-04-choose-profile.png")]),
+            "## Seven days, one at a time",
+            ("phones", [("Home dashboard", "assets/work/first7/screen-05-home-dashboard.png"), ("7 day checklist", "assets/work/first7/screen-06-7-day-checklist.png"), ("Task: SIM card", "assets/work/first7/screen-07-task-sim-card.png"), ("Task: transit", "assets/work/first7/screen-08-task-transit.png"), ("Task: bank account", "assets/work/first7/screen-09-task-bank-account.png"), ("Task: SIN and ID", "assets/work/first7/screen-10-task-sin-id.png"), ("Healthcare basics", "assets/work/first7/screen-11-healthcare-basics.png"), ("Apps and community hub", "assets/work/first7/screen-12-apps-community-hub.png")]),
+            "## When it is too much",
+            ("phones", [("Overwhelmed Mode", "assets/work/first7/screen-15-overwhelmed-mode.png"), ("Emergency information", "assets/work/first7/screen-14-emergency-info.png"), ("Progress summary", "assets/work/first7/screen-16-progress-summary.png"), ("Profile", "assets/work/first7/screen-13-profile.png")]),
+            "## Design system",
+            ("Brand foundation, logo and colour", "is-third", "assets/work/first7/style-guide-1.jpg"),
+            ("Type, spacing, the 7 day track and components", "is-third", "assets/work/first7/style-guide-2.jpg"),
+            ("Icons, accessibility rules and the system in use", "is-third", "assets/work/first7/style-guide-3.jpg"),
+            ("Logo kit", "is-half", "assets/work/first7/logo-kit.jpg"),
+            ("Figma components", "is-half", "assets/work/first7/components.png"),
+        ],
     },
     {
-        "slug": "plant-box", "img": "assets/img/plant.jpg", "page": "C1",
+        "slug": "plant-box", "img": "assets/img/plant.jpg", "page": "B1",
         "title": "Plant Box", "short": "Plant Box",
         "kind": "UI/UX concept", "when": "BCIT",
         "deck": "A concept for a plant subscription box with a companion app, made for people keeping their first plant alive.",
@@ -149,9 +175,30 @@ STORIES = [
         "pull": "Good care. Less guesswork.",
         "gallery": [("Persona", "is-half", ""), ("App flow", "is-half", ""), ("Screens", "is-wide", ""), ("Packaging", "", "")],
     },
+    {
+        "slug": "xbox-launch-campaign", "img": "assets/img/xbox.jpg", "page": "C1",
+        "title": "Xbox Series X|S launch campaign", "short": "Xbox launch campaign",
+        "kind": "Graphic design", "when": "Korea, 2020",
+        "deck": "A gift set, posters and banners for the launch of Xbox Series X and Series S in Korea, made while I was the product manager on the brand.",
+        "status": "Developing story!",
+        "facts": [("Discipline", "Graphic design"), ("Context", "Console launch, Korea"), ("Pieces", "Gift set, posters, banners"), ("Year", "2020")],
+        "sections": [
+            ("The assignment", [
+                "Xbox Series X and Series S launched in Korea while I was the product manager for Xbox at a Microsoft distributor.",
+                "A launch plan lives in spreadsheets. A launch itself lives in the things people see and hold, so alongside the planning I worked on the campaign's visual pieces.",
+            ], []),
+            ("What I made", [], [
+                ("Gift set", "A boxed set prepared for the launch."),
+                ("Posters", "Launch posters for the campaign."),
+                ("Banners", "Banners carrying the campaign across channels."),
+            ]),
+        ],
+        "pull": "Before the screen, there was the business brief.",
+        "gallery": [("Gift set", "", ""), ("Launch poster", "", ""), ("Banner", "", ""), ("Campaign in place", "is-wide", ""), ("Detail", "", "")],
+    },
 ]
 
-HELD = [("K-Sip", "UI/UX"), ("Fruity Lab", "Brand identity")]
+HELD = [("ServeSmart", "Mobile app"), ("Taste Together", "Business model"), ("Fruity Lab", "Brand identity")]
 
 EXPERIENCE = [
     ("Now", "New Media Design and Web Development, BCIT", "Full time student in Vancouver, building this portfolio toward an internship."),
@@ -258,6 +305,10 @@ def foot(matter=False):
 """
 
 
+def thumb_ok(s):
+    return bool(s.get('thumb')) and (ROOT / s['thumb']).exists()
+
+
 def page_home():
     scraps = ""
     for text, kind, href, small in SCRAPS:
@@ -271,11 +322,12 @@ def page_home():
 
     def card(s, cls):
         return f"""    <li class="story {cls}"><a class="story__link" href="{s['slug']}.html">
-      <div class="pic{' pic--color' if s.get('color') and not s.get('thumb') else ''}"><img src="{s.get('thumb', s['img'])}" alt="" loading="lazy"></div>
+      <div class="pic{' pic--color' if s.get('color') and not thumb_ok(s) else ''}"><img src="{s['thumb'] if thumb_ok(s) else s['img']}" alt="" loading="lazy"></div>
       <div><p class="kicker kicker--red">{e(s['kind'])}, {e(s['when'])}</p><h3 class="story__title"><span>{e(s['title'])}</span></h3><p class="story__deck">{e(s['deck'])}</p></div></a></li>
 """
     rows = card(STORIES[0], "story--feature") + card(STORIES[1], "story--left") + card(STORIES[2], "story--right")
-    held = "".join(f"<span><b>{e(t)}</b> <span>{e(k)}</span></span>" for t, k in HELD)
+    held = "".join(f'<span><a class="textlink" href="{x["slug"]}.html"><b>{e(x["short"])}</b></a> <span>{e(x["kind"])}</span></span>' for x in STORIES[3:])
+    held += "".join(f"<span><b>{e(t)}</b> <span>{e(k)}</span></span>" for t, k in HELD)
     return head("", SITE["description"]) + top("home", inner=False) + f"""<main id="main">
   <section class="wrap front">
     <div class="lead">
@@ -299,7 +351,7 @@ def page_home():
   <section class="section wrap" id="work">
     <div class="section__head"><h2 class="section__title">In this edition</h2><p class="kicker">Selected work</p></div>
     <ul class="stories">
-{rows}      <li class="held"><span class="kicker kicker--red">Next edition</span>{held}</li>
+{rows}      <li class="held"><span class="kicker kicker--red">Also in this edition</span>{held}</li>
     </ul>
   </section>
 
@@ -332,6 +384,9 @@ def page_story(i):
     facts = "".join(f"<div><dt>{e(a)}</dt><dd>{e(b)}</dd></div>" for a, b in s["facts"])
     gal = ""
     for g in s["gallery"]:
+        if isinstance(g, tuple) and g[0] == "phones":
+            gal += '<div class="phones">' + "".join(f'<figure class="phone"><a href="{img}" aria-label="Open {e(cap)} full size"><img src="{img}" alt="{e(cap)}" loading="lazy" width="390" height="844"></a><figcaption class="credit">{e(cap)}</figcaption></figure>' for cap, img in g[1]) + '</div>'
+            continue
         if isinstance(g, str):
             gal += f'<h2 class="gallery__title">{e(g[3:])}</h2>'
         elif g[2].startswith("assets/work/"):
@@ -341,12 +396,13 @@ def page_story(i):
             gal += frame(*g)
     color = " pic--color" if s.get("color") else ""
     status = f'<span class="status pen">{e(s["status"])}</span>' if s.get("status") else ""
+    link = f'<p style="margin-top:1rem"><a class="btn" href="{s["link"][1]}" rel="noopener">{e(s["link"][0])}</a></p>' if s.get("link") else ""
     return head(s["title"], s["deck"]) + top("work") + f"""<main id="main">
   <article class="wrap">
     <header class="article__head">
       <div><a class="article__section kicker kicker--red" href="index.html#work">{e(s['kind'])}, {e(s['when'])}</a>
       <h1 class="article__title">{e(s['title'])}</h1></div>
-      <div><p class="article__deck">{e(s['deck'])}</p>{status}</div>
+      <div><p class="article__deck">{e(s['deck'])}</p>{status}{link}</div>
     </header>
     <figure class="leadpic"><div class="pic{color}"><img src="{s.get('lead', s['img'])}" alt="{e(s.get('credit', ''))}"></div><figcaption class="credit">{e(s.get('credit', ILLUSTRATION))}</figcaption></figure>
     <div class="article__body">
