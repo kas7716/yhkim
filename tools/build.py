@@ -48,7 +48,7 @@ LEAD = [
 
 STORIES = [
     {
-        "slug": "banju", "img": "assets/work/banju/card.jpg", "lead": "assets/work/banju/lead.jpg", "color": True, "page": "A2",
+        "slug": "banju", "img": "assets/work/banju/card.jpg", "thumb": "assets/img/banju.jpg", "lead": "assets/work/banju/lead.jpg", "color": True, "page": "A2",
         "credit": "The Banju main menu: cover, signature page and the hot pot spread.",
         "title": "Banju menus and posters", "short": "Banju menus and posters",
         "kind": "Graphic design", "when": "Vancouver, 2026",
@@ -271,7 +271,7 @@ def page_home():
 
     def card(s, cls):
         return f"""    <li class="story {cls}"><a class="story__link" href="{s['slug']}.html">
-      <div class="pic{' pic--color' if s.get('color') else ''}"><img src="{s['img']}" alt="" loading="lazy"></div>
+      <div class="pic{' pic--color' if s.get('color') and not s.get('thumb') else ''}"><img src="{s.get('thumb', s['img'])}" alt="" loading="lazy"></div>
       <div><p class="kicker kicker--red">{e(s['kind'])}, {e(s['when'])}</p><h3 class="story__title"><span>{e(s['title'])}</span></h3><p class="story__deck">{e(s['deck'])}</p></div></a></li>
 """
     rows = card(STORIES[0], "story--feature") + card(STORIES[1], "story--left") + card(STORIES[2], "story--right")
