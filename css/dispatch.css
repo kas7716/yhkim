@@ -344,3 +344,12 @@ ul, ol { list-style: none; }
 /* Live prototype */
 .proto { grid-column: 1 / -1; display: grid; justify-items: center; gap: 0.6rem; padding-block: 0.5rem 1rem; }
 .proto iframe { width: min(100%, 27rem); height: min(88vh, 58rem); border: 0; border-radius: 1.8rem; background: var(--sheet); box-shadow: 0 30px 46px -26px rgba(22, 20, 18, 0.75); }
+
+/* Cover: printed paper, and Diana behind it */
+.cover .pic img { filter: contrast(1.04); }
+.cover .reveal { position: absolute; left: 0; top: 0; z-index: 2; pointer-events: none; }
+.cover { cursor: none; }
+.cover .scrap { cursor: grab; }
+.cover__cursor { position: absolute; left: 0; top: 0; z-index: 6; width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%; border: 2px solid var(--red); background: transparent; pointer-events: none; opacity: 0; transition: opacity 0.2s ease; }
+.cover:hover .cover__cursor { opacity: 1; }
+@media (hover: none) { .cover { cursor: auto; } .cover__cursor { display: none; } }

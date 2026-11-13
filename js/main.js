@@ -54,6 +54,79 @@
     });
   }
 
+
+  /* Cover: a soft blob with a tail follows the cursor and shows Diana behind the paper */
+  (function () {
+    var cover = document.querySelector(".cover");
+    var cv = cover && cover.querySelector(".reveal");
+    if (!cv || !cv.getContext) return;
+    var pic = cover.querySelector(".pic");
+    var ctx = cv.getContext("2d");
+    var mask = document.createElement("canvas");
+    var mctx = mask.getContext("2d");
+    var img = new Image();
+    img.src = cv.dataset.src;
+    var dot = document.createElement("span");
+    dot.className = "cover__cursor";
+    cover.appendChild(dot);
+    var goo = "filter" in ctx;
+    var dpr = Math.min(2, window.devicePixelRatio || 1);
+    var N = reduced ? 1 : 14;
+    var pts = [], tx = 0, ty = 0, on = 0, target = 0, raf = null, w = 0, h = 0;
+    function size() {
+      w = pic.offsetWidth; h = pic.offsetHeight;
+      cv.style.left = pic.offsetLeft + "px"; cv.style.top = pic.offsetTop + "px";
+      cv.style.width = w + "px"; cv.style.height = h + "px";
+      cv.width = mask.width = Math.round(w * dpr);
+      cv.height = mask.height = Math.round(h * dpr);
+    }
+    size();
+    window.addEventListener("resize", size);
+    function move(e) {
+      var r = pic.getBoundingClientRect();
+      tx = (e.clientX - r.left) * dpr; ty = (e.clientY - r.top) * dpr;
+      dot.style.transform = "translate(" + (e.clientX - cover.getBoundingClientRect().left) + "px," + (e.clientY - cover.getBoundingClientRect().top) + "px)";
+      if (!pts.length) { for (var i = 0; i < N; i++) pts.push({ x: tx, y: ty }); }
+      target = 1;
+      if (!raf) raf = requestAnimationFrame(frame);
+    }
+    cover.addEventListener("pointermove", move);
+    cover.addEventListener("pointerdown", move);
+    cover.addEventListener("pointerleave", function () { target = 0; });
+    function frame() {
+      raf = null;
+      on += (target - on) * (target ? 0.14 : 0.08);
+      for (var i = 0; i < pts.length; i++) {
+        var lead = i === 0 ? { x: tx, y: ty } : pts[i - 1];
+        var k = i === 0 ? 0.32 : 0.42;
+        pts[i].x += (lead.x - pts[i].x) * k;
+        pts[i].y += (lead.y - pts[i].y) * k;
+      }
+      var R = cv.width * 0.15 * on;
+      mctx.clearRect(0, 0, mask.width, mask.height);
+      mctx.fillStyle = "#fff";
+      for (var j = pts.length - 1; j >= 0; j--) {
+        var r = R * (1 - (j / N) * 0.8);
+        if (r <= 0.5) continue;
+        mctx.beginPath(); mctx.arc(pts[j].x, pts[j].y, r, 0, Math.PI * 2); mctx.fill();
+      }
+      ctx.clearRect(0, 0, cv.width, cv.height);
+      if (R > 0.5 && img.complete) {
+        ctx.save();
+        if (goo) ctx.filter = "url(#goo)";
+        ctx.drawImage(mask, 0, 0);
+        ctx.restore();
+        ctx.globalCompositeOperation = "source-in";
+        ctx.drawImage(img, 0, 0, cv.width, cv.height);
+        ctx.globalCompositeOperation = "source-over";
+      }
+      var moving = false;
+      for (var m = 0; m < pts.length; m++) { if (Math.abs(pts[m].x - tx) + Math.abs(pts[m].y - ty) > 0.5) { moving = true; break; } }
+      if (moving || Math.abs(target - on) > 0.01) raf = requestAnimationFrame(frame);
+      else if (!target) { ctx.clearRect(0, 0, cv.width, cv.height); pts = []; on = 0; }
+    }
+  })();
+
   /* Front page: loose clippings you can grab, drag and throw */
   var stage = document.querySelector("[data-stage]");
   if (!stage || !window.Matter || reduced) return;

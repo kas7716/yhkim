@@ -375,12 +375,13 @@ def page_home():
     </div>
     <div>
       <figure class="cover stage" data-stage>
-        <div class="pic"><img src="assets/img/cover.jpg" alt="A person holding an open newspaper that hides their face. The paper reads: The Diana Dispatch, designer seeks internship."></div>
-        <div class="cover__print" aria-hidden="true"><b>{e(SITE['name'])}</b><div class="cover__pages"><div><em>Extra</em><strong>Designer seeks internship.</strong><div class="greek"></div></div><div><div class="greek greek--tall"></div></div></div></div>
+        <div class="pic"><img src="assets/img/cover-printed.jpg" alt="A person holds open a newspaper called The Diana Dispatch. The headline reads: Designer seeks internship."></div>
+        <canvas class="reveal" data-src="assets/img/reveal.webp" aria-hidden="true"></canvas>
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="goo"><feGaussianBlur stdDeviation="14"/><feColorMatrix values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 24 -10"/></filter></svg>
         <p class="cover__note pen" aria-hidden="true"><svg viewBox="0 0 60 40"><path d="M56 6 C 40 4, 18 10, 6 30 M6 30 l2 -11 M6 30 l11 -3"/></svg>that's me</p>
         <div class="scraps">{scraps}</div>
       </figure>
-      <p class="credit stage__hint">The clippings are loose. Grab one and throw it. {ILLUSTRATION.split('.')[0]}.</p>
+      <p class="credit stage__hint">Move your cursor over the newspaper to see who is behind it. The clippings are loose too: grab one and throw it. Newspaper photo made with Higgsfield.</p>
     </div>
   </section>
 
