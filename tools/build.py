@@ -29,7 +29,7 @@ TICKER = [
     ("Diana Kim is open to internship placements in Vancouver", "about.html#contact"),
     ("New in this edition: menus and posters for Banju", "banju.html"),
     ("First7, an app for your first week in Canada", "first7.html"),
-    ("Xbox Series X|S launch campaign", "xbox-launch-campaign.html"),
+    ("Xbox Series X|S and the Halo Infinite gift set", "xbox-launch-campaign.html"),
     ("Rootly, a plant brand for nervous beginners", "rootly.html"),
 ]
 
@@ -315,7 +315,7 @@ STORIES = [
         "kind": "Brand identity", "when": "BCIT",
         "deck": "A branding package for a creative brand that turns three moods into three fruits, each with its own palette.",
         "status": "",
-        "facts": [("Discipline", "Brand identity"), ("Type", "School project, BCIT"), ("Team", "Solo"), ("Pieces", "Logo system, colour system, typography, applications")],
+        "facts": [("Discipline", "Brand identity"), ("Course", "Graphic Design for New Media, BCIT"), ("Team", "Solo"), ("Pieces", "Logo system, colour system, typography, applications")],
         "sections": [
             ("The idea", [
                 "Fruity Lab is a creative brand that shows contrasting moods through minimal, fruit inspired design. It runs on three moods, and each one has a fruit: Tomato for energy, Fig for emotion, Cherry for clarity.",
@@ -352,25 +352,50 @@ STORIES = [
         ],
     },
     {
-        "slug": "xbox-launch-campaign", "img": "assets/img/xbox.jpg", "page": "C1",
-        "title": "Xbox Series X|S launch campaign", "short": "Xbox launch campaign",
-        "kind": "Graphic design", "when": "Korea, 2020",
-        "deck": "A gift set, posters and banners for the launch of Xbox Series X and Series S in Korea, made while I was the product manager on the brand.",
-        "status": "Developing story!",
-        "facts": [("Discipline", "Graphic design"), ("Context", "Console launch, Korea"), ("Pieces", "Gift set, posters, banners"), ("Year", "2020")],
+        "slug": "xbox-launch-campaign", "img": "assets/work/xbox/lead.jpg", "lead": "assets/work/xbox/lead.jpg", "thumb": "assets/img/xbox.jpg", "color": True, "page": "C1",
+        "credit": "The Halo Infinite gift box, closed and open: mug, item card and mask.",
+        "title": "Xbox Series X|S and the Halo Infinite gift set", "short": "Xbox and Halo gift set",
+        "kind": "Graphic design and marketing", "when": "Korea, 2020 to 2021",
+        "deck": "A limited Halo Infinite gift set for 100 preorder customers and a sale page for Xbox Series X|S, made while I worked on the Xbox team at a Microsoft distributor in Korea.",
+        "status": "",
+        "facts": [("Discipline", "Graphic design, packaging, marketing"), ("Context", "Xbox team at a Microsoft distributor, Korea"), ("My role", "Junior team member: design and production of the gift set, promotional design"), ("Pieces", "Gift box, mug, masks, item cards, sale page"), ("Edition", "100 gift sets")],
         "sections": [
-            ("The assignment", [
-                "Xbox Series X and Series S launched in Korea while I was the product manager for Xbox at a Microsoft distributor.",
-                "A launch plan lives in spreadsheets. A launch itself lives in the things people see and hold, so alongside the planning I worked on the campaign's visual pieces.",
+            ("Where I started", [
+                "I joined the Xbox team at a Microsoft distributor in Korea as its most junior member. I learned marketing and sales on the job while Xbox Series X and Series S came to market.",
+                "Much of the work was operational. In one quarter of 2020 I produced 157 product detail pages and thumbnails for Xbox digital titles, along with pop up pages and point of purchase displays for retail events.",
             ], []),
-            ("What I made", [], [
-                ("Gift set", "A boxed set prepared for the launch."),
-                ("Posters", "Launch posters for the campaign."),
-                ("Banners", "Banners carrying the campaign across channels."),
+            ("The gift set", [
+                "Halo Infinite was the headline game for the new consoles, so we made a Halo gift for customers who preordered a console. It was limited to 100 people.",
+                "I designed the goods and handled their production: a boxed set with a stainless mug, face masks with a strap, and a game item card.",
+            ], []),
+            ("Design decisions", [], [
+                ("The box", "I first explored a deep sleeve box with a pull tab, then moved to a magnetic flip box with foam inserts so each item has its own place."),
+                ("Quiet branding", "Black and white, with the Halo Infinite wordmark and the Master Chief helmet drawn in line. The key art appears once, on the lid."),
+                ("Mask packaging", "Each mask sits on a printed card of game artwork, so opening it shows the world of the game first."),
             ]),
+            ("The sale page", [
+                "I also designed the long product page announcing when Xbox Series X|S orders would open, with the two consoles side by side and the main features below.",
+            ], []),
+            ("What I took from it", [
+                "This is where I learned that a launch plan lives in spreadsheets, but the launch itself lives in the things people see and hold. It is the reason I moved from marketing into design.",
+            ], []),
         ],
-        "pull": "Before the screen, there was the business brief.",
-        "gallery": [("Gift set", "", ""), ("Launch poster", "", ""), ("Banner", "", ""), ("Campaign in place", "is-wide", ""), ("Detail", "", "")],
+        "pull": "A launch lives in the things people see and hold.",
+        "gallery": [
+            "## The gift set",
+            ("Gift box, closed", "is-half", "assets/work/xbox/box-closed.jpg"),
+            ("Gift box, open", "is-half", "assets/work/xbox/box-open.jpg"),
+            ("Stainless mug, helmet side", "is-half", "assets/work/xbox/mug-1.jpg"),
+            ("Stainless mug, wordmark side", "is-half", "assets/work/xbox/mug-2.jpg"),
+            ("Mask set, black", "is-half", "assets/work/xbox/mask-set-black.jpg"),
+            ("Mask set, white", "is-half", "assets/work/xbox/mask-set-white.jpg"),
+            "## Earlier concepts",
+            ("First box concept: a deep sleeve box", "is-half", "assets/work/xbox/sleeve-box.jpg"),
+            ("Game item card", "is-half", "assets/work/xbox/item-card.jpg"),
+            ("Concept deck: mask and strap", "is-full", "assets/work/xbox/deck-mask.jpg"),
+            "## Sale page",
+            ("Xbox Series X|S sale page", "is-third", "assets/work/xbox/sale-page.jpg"),
+        ],
     },
 ]
 
