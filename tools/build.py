@@ -207,6 +207,57 @@ STORIES = [
         ],
     },
     {
+        "slug": "servesmart", "img": "assets/work/servesmart/lead.jpg", "lead": "assets/work/servesmart/lead.jpg", "color": True, "page": "B2",
+        "credit": "ServeSmart running in the iOS simulator: menu, dish detail, ingredient guide, reference and saved dishes.",
+        "title": "ServeSmart", "short": "ServeSmart",
+        "kind": "Mobile app", "when": "BCIT, 2026",
+        "deck": "A menu study app for restaurant servers, built in React Native after my own shifts at Banju.",
+        "status": "",
+        "facts": [("Discipline", "Mobile app design and development"), ("Course", "MDIA 4295 App Development Strategy 2, BCIT"), ("Team", "Solo"), ("Built with", "React Native, Expo, React Navigation, AsyncStorage, Wikipedia API"), ("AI use", "Built with OpenAI Codex assistance, with my instructor's permission")],
+        "sections": [
+            ("Why I made it", [
+                "Working at Banju made me want a way to review ingredients and possible changes before a shift, especially when I have to explain dishes in English.",
+                "ServeSmart is a study app for servers. It starts with four real menu items: Vegetable Hot Stone Bowl Bibimbap, Seafood Soft Tofu Soup, Steamed Clams with Wine & Butter, and Mushroom Bulgogi.",
+            ], []),
+            ("What it does", [], [
+                ("Banju Menu", "Browse the dishes and search by keyword."),
+                ("Menu Detail", "Read ingredients, changes a guest can ask for, and allergy checks. Save a dish to study later."),
+                ("Ingredient Guide", "Look up an English ingredient word through the Wikipedia API."),
+                ("Ingredient Reference", "Read a short introduction with its source and licence."),
+                ("My Study", "Review the dishes saved on the device."),
+            ]),
+            ("Being careful with allergies", [
+                "A study app for servers must not overpromise. The app lists what to check for egg, soy, milk, crustaceans and molluscs, and keeps sulphite and gluten concerns separate from food allergy.",
+                "It also says plainly that removing one ingredient does not make a dish safe, because sauces or shared preparation may still contain it. Details I could not confirm with the kitchen are marked as unconfirmed.",
+            ], []),
+            ("How it works", [
+                "The menu search uses local data. Two API requests happen in two different views: one finds the ingredient page, the other loads its introduction. Both show a loading state and clear messages when nothing is found or a request fails.",
+                "Saved dishes are stored on the device with AsyncStorage. The save button changes after a successful write, and duplicates are prevented.",
+            ], []),
+            ("The second version: Study Notes", [
+                "For the next assignment I built ServeSmart Study Notes, a local notes app for the same servers. Users create, edit, review and delete study notes, filter by status, and sort by priority or title.",
+                "I ran checks on creating, editing, deleting, filtering, sorting and saved data after a reload in the web preview. Native device layout is not verified yet.",
+            ], []),
+        ],
+        "pull": "Removing one ingredient does not make a dish safe.",
+        "gallery": [
+            "## The app",
+            ("phones", [("Banju Menu", "assets/work/servesmart/screen-menu.png"), ("Menu Detail", "assets/work/servesmart/screen-detail.png"), ("Changes and allergy checks", "assets/work/servesmart/screen-allergy.png"), ("Ingredient Guide", "assets/work/servesmart/screen-guide.png")]),
+            ("phones", [("Ingredient Reference", "assets/work/servesmart/screen-reference.png"), ("My Study", "assets/work/servesmart/screen-study.png")]),
+            "## Demo",
+            ("video", "assets/work/servesmart/demo.mp4", "The first minute of the demo recording, running in the iOS simulator."),
+            "## Wireframes",
+            ("Menu search and dish detail", "is-half", "assets/work/servesmart/wire-a-1.jpg"),
+            ("Two API requests in two views", "is-half", "assets/work/servesmart/wire-a-2.jpg"),
+            ("Saved items and the navigation map", "is-full", "assets/work/servesmart/wire-a-3.jpg"),
+            "## Study Notes",
+            ("Study Notes: filtering reviewed notes", "is-half", "assets/work/servesmart/notes-60.jpg"),
+            ("Study Notes: deleting a note", "is-half", "assets/work/servesmart/notes-100.jpg"),
+            ("Study Notes wireframes: list and empty state", "is-half", "assets/work/servesmart/wire-b-1.jpg"),
+            ("Study Notes wireframes: add and edit form", "is-half", "assets/work/servesmart/wire-b-2.jpg"),
+        ],
+    },
+    {
         "slug": "xbox-launch-campaign", "img": "assets/img/xbox.jpg", "page": "C1",
         "title": "Xbox Series X|S launch campaign", "short": "Xbox launch campaign",
         "kind": "Graphic design", "when": "Korea, 2020",
@@ -229,7 +280,7 @@ STORIES = [
     },
 ]
 
-HELD = [("ServeSmart", "Mobile app"), ("Taste Together", "Business model"), ("Fruity Lab", "Brand identity")]
+HELD = [("Taste Together", "Business model"), ("Fruity Lab", "Brand identity")]
 
 EXPERIENCE = [
     ("Now", "New Media Design and Web Development, BCIT", "Full time student in Vancouver, building this portfolio toward an internship."),
@@ -421,6 +472,9 @@ def page_story(i):
     facts = "".join(f"<div><dt>{e(a)}</dt><dd>{e(b)}</dd></div>" for a, b in s["facts"])
     gal = ""
     for g in s["gallery"]:
+        if isinstance(g, tuple) and g[0] == "video":
+            gal += f'<div class="proto"><video src="{g[1]}" controls muted playsinline preload="metadata" class="demo"></video><p class="credit">{e(g[2])}</p></div>'
+            continue
         if isinstance(g, tuple) and g[0] == "embed":
             gal += f'<div class="proto"><iframe src="{e(s["embed"])}" title="{e(s["title"])} prototype in Figma" loading="lazy" allowfullscreen></iframe><p class="credit">Tap through the live prototype. If it does not load, <a href="{e(s["link"][1])}" rel="noopener">open it in a new tab</a>.</p></div>'
             continue

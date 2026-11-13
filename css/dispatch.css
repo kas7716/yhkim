@@ -353,3 +353,5 @@ ul, ol { list-style: none; }
 .cover__cursor { position: absolute; left: 0; top: 0; z-index: 6; width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%; border: 2px solid var(--red); background: transparent; pointer-events: none; opacity: 0; transition: opacity 0.2s ease; }
 .cover:hover .cover__cursor { opacity: 1; }
 @media (hover: none) { .cover { cursor: auto; } .cover__cursor { display: none; } }
+
+.proto .demo { width: min(100%, 22rem); height: auto; border-radius: 1.8rem; box-shadow: 0 30px 46px -26px rgba(22, 20, 18, 0.75); background: #000; }

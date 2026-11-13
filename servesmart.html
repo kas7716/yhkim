@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ServeSmart | The Diana Dispatch</title>
+<meta name="description" content="A menu study app for restaurant servers, built in React Native after my own shifts at Banju.">
+<meta name="author" content="Diana Kim">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ServeSmart | The Diana Dispatch">
+<meta property="og:description" content="A menu study app for restaurant servers, built in React Native after my own shifts at Banju.">
+<meta property="og:image" content="assets/img/cover.jpg">
+<meta name="theme-color" content="#e9e5dc">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/dispatch.css?v=a74455ec">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="ticker" aria-label="Latest">
+  <div class="ticker__track"><div class="ticker__group"><span class="ticker__item"><a href="about.html#contact">Diana Kim is open to internship placements in Vancouver</a></span><span class="ticker__item"><a href="banju.html">New in this edition: menus and posters for Banju</a></span><span class="ticker__item"><a href="first7.html">First7, an app for your first week in Canada</a></span><span class="ticker__item"><a href="xbox-launch-campaign.html">Xbox Series X|S launch campaign</a></span><span class="ticker__item"><a href="rootly.html">Rootly, a plant brand for nervous beginners</a></span></div><div class="ticker__group" aria-hidden="true"><span class="ticker__item"><a tabindex="-1" href="about.html#contact">Diana Kim is open to internship placements in Vancouver</a></span><span class="ticker__item"><a tabindex="-1" href="banju.html">New in this edition: menus and posters for Banju</a></span><span class="ticker__item"><a tabindex="-1" href="first7.html">First7, an app for your first week in Canada</a></span><span class="ticker__item"><a tabindex="-1" href="xbox-launch-campaign.html">Xbox Series X|S launch campaign</a></span><span class="ticker__item"><a tabindex="-1" href="rootly.html">Rootly, a plant brand for nervous beginners</a></span></div></div>
+</div>
+<header class="wrap">
+  <div class="masthead masthead--inner">
+    <div class="ear"><strong>Weather</strong>Vancouver: rain, probably. Good day to stay in and read.</div>
+    <p style="margin:0"><a class="masthead__title" href="index.html">The Diana Dispatch</a></p>
+    <div class="ear ear--right"><strong>Price</strong>Free. Always was.<div class="barcode" aria-hidden="true"></div></div>
+  </div>
+  <div class="dateline"><span data-today>Vancouver edition</span><span>Design edition, No. 2</span><span>Seoul to Vancouver</span><span>Written and designed by Diana Kim</span></div>
+</header>
+<div class="bar">
+  <div class="wrap bar__in">
+    <a class="bar__name" href="index.html">The Diana Dispatch</a>
+    <nav class="bar__nav" aria-label="Sections">
+      <a href="index.html">Front page</a>
+      <a href="index.html#work" aria-current="page">Work</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+<main id="main">
+  <article class="wrap">
+    <header class="article__head">
+      <div><a class="article__section kicker kicker--red" href="index.html#work">Mobile app, BCIT, 2026</a>
+      <h1 class="article__title">ServeSmart</h1></div>
+      <div><p class="article__deck">A menu study app for restaurant servers, built in React Native after my own shifts at Banju.</p></div>
+    </header>
+    <figure class="leadpic"><div class="pic pic--color"><img src="assets/work/servesmart/lead.jpg" alt="ServeSmart running in the iOS simulator: menu, dish detail, ingredient guide, reference and saved dishes."></div><figcaption class="credit">ServeSmart running in the iOS simulator: menu, dish detail, ingredient guide, reference and saved dishes.</figcaption></figure>
+    <div class="article__body">
+      <dl class="facts"><div><dt>Discipline</dt><dd>Mobile app design and development</dd></div><div><dt>Course</dt><dd>MDIA 4295 App Development Strategy 2, BCIT</dd></div><div><dt>Team</dt><dd>Solo</dd></div><div><dt>Built with</dt><dd>React Native, Expo, React Navigation, AsyncStorage, Wikipedia API</dd></div><div><dt>AI use</dt><dd>Built with OpenAI Codex assistance, with my instructor&#x27;s permission</dd></div></dl>
+      <div class="prose"><h2>Why I made it</h2><p>Working at Banju made me want a way to review ingredients and possible changes before a shift, especially when I have to explain dishes in English.</p><p>ServeSmart is a study app for servers. It starts with four real menu items: Vegetable Hot Stone Bowl Bibimbap, Seafood Soft Tofu Soup, Steamed Clams with Wine &amp; Butter, and Mushroom Bulgogi.</p><h2>What it does</h2><ul><li><strong>Banju Menu</strong><span>Browse the dishes and search by keyword.</span></li><li><strong>Menu Detail</strong><span>Read ingredients, changes a guest can ask for, and allergy checks. Save a dish to study later.</span></li><li><strong>Ingredient Guide</strong><span>Look up an English ingredient word through the Wikipedia API.</span></li><li><strong>Ingredient Reference</strong><span>Read a short introduction with its source and licence.</span></li><li><strong>My Study</strong><span>Review the dishes saved on the device.</span></li></ul><h2>Being careful with allergies</h2><p>A study app for servers must not overpromise. The app lists what to check for egg, soy, milk, crustaceans and molluscs, and keeps sulphite and gluten concerns separate from food allergy.</p><p>It also says plainly that removing one ingredient does not make a dish safe, because sauces or shared preparation may still contain it. Details I could not confirm with the kitchen are marked as unconfirmed.</p><h2>How it works</h2><p>The menu search uses local data. Two API requests happen in two different views: one finds the ingredient page, the other loads its introduction. Both show a loading state and clear messages when nothing is found or a request fails.</p><p>Saved dishes are stored on the device with AsyncStorage. The save button changes after a successful write, and duplicates are prevented.</p><h2>The second version: Study Notes</h2><p>For the next assignment I built ServeSmart Study Notes, a local notes app for the same servers. Users create, edit, review and delete study notes, filter by status, and sort by priority or title.</p><p>I ran checks on creating, editing, deleting, filtering, sorting and saved data after a reload in the web preview. Native device layout is not verified yet.</p></div>
+    </div>
+    <aside class="pull"><p>Removing one ingredient does not make a dish safe.</p></aside>
+    <div class="gallery"><h2 class="gallery__title">The app</h2><div class="phones"><figure class="phone"><a href="assets/work/servesmart/screen-menu.png" aria-label="Open Banju Menu full size"><img src="assets/work/servesmart/screen-menu.png" alt="Banju Menu" loading="lazy" width="390" height="844"></a><figcaption class="credit">Banju Menu</figcaption></figure><figure class="phone"><a href="assets/work/servesmart/screen-detail.png" aria-label="Open Menu Detail full size"><img src="assets/work/servesmart/screen-detail.png" alt="Menu Detail" loading="lazy" width="390" height="844"></a><figcaption class="credit">Menu Detail</figcaption></figure><figure class="phone"><a href="assets/work/servesmart/screen-allergy.png" aria-label="Open Changes and allergy checks full size"><img src="assets/work/servesmart/screen-allergy.png" alt="Changes and allergy checks" loading="lazy" width="390" height="844"></a><figcaption class="credit">Changes and allergy checks</figcaption></figure><figure class="phone"><a href="assets/work/servesmart/screen-guide.png" aria-label="Open Ingredient Guide full size"><img src="assets/work/servesmart/screen-guide.png" alt="Ingredient Guide" loading="lazy" width="390" height="844"></a><figcaption class="credit">Ingredient Guide</figcaption></figure></div><div class="phones"><figure class="phone"><a href="assets/work/servesmart/screen-reference.png" aria-label="Open Ingredient Reference full size"><img src="assets/work/servesmart/screen-reference.png" alt="Ingredient Reference" loading="lazy" width="390" height="844"></a><figcaption class="credit">Ingredient Reference</figcaption></figure><figure class="phone"><a href="assets/work/servesmart/screen-study.png" aria-label="Open My Study full size"><img src="assets/work/servesmart/screen-study.png" alt="My Study" loading="lazy" width="390" height="844"></a><figcaption class="credit">My Study</figcaption></figure></div><h2 class="gallery__title">Demo</h2><div class="proto"><video src="assets/work/servesmart/demo.mp4" controls muted playsinline preload="metadata" class="demo"></video><p class="credit">The first minute of the demo recording, running in the iOS simulator.</p></div><h2 class="gallery__title">Wireframes</h2><figure class="work is-half"><a href="assets/work/servesmart/wire-a-1.jpg" aria-label="Open Menu search and dish detail full size"><img src="assets/work/servesmart/wire-a-1.jpg" alt="Menu search and dish detail" loading="lazy"></a><figcaption class="credit">Menu search and dish detail</figcaption></figure><figure class="work is-half"><a href="assets/work/servesmart/wire-a-2.jpg" aria-label="Open Two API requests in two views full size"><img src="assets/work/servesmart/wire-a-2.jpg" alt="Two API requests in two views" loading="lazy"></a><figcaption class="credit">Two API requests in two views</figcaption></figure><figure class="work is-full"><a href="assets/work/servesmart/wire-a-3.jpg" aria-label="Open Saved items and the navigation map full size"><img src="assets/work/servesmart/wire-a-3.jpg" alt="Saved items and the navigation map" loading="lazy"></a><figcaption class="credit">Saved items and the navigation map</figcaption></figure><h2 class="gallery__title">Study Notes</h2><figure class="work is-half"><a href="assets/work/servesmart/notes-60.jpg" aria-label="Open Study Notes: filtering reviewed notes full size"><img src="assets/work/servesmart/notes-60.jpg" alt="Study Notes: filtering reviewed notes" loading="lazy"></a><figcaption class="credit">Study Notes: filtering reviewed notes</figcaption></figure><figure class="work is-half"><a href="assets/work/servesmart/notes-100.jpg" aria-label="Open Study Notes: deleting a note full size"><img src="assets/work/servesmart/notes-100.jpg" alt="Study Notes: deleting a note" loading="lazy"></a><figcaption class="credit">Study Notes: deleting a note</figcaption></figure><figure class="work is-half"><a href="assets/work/servesmart/wire-b-1.jpg" aria-label="Open Study Notes wireframes: list and empty state full size"><img src="assets/work/servesmart/wire-b-1.jpg" alt="Study Notes wireframes: list and empty state" loading="lazy"></a><figcaption class="credit">Study Notes wireframes: list and empty state</figcaption></figure><figure class="work is-half"><a href="assets/work/servesmart/wire-b-2.jpg" aria-label="Open Study Notes wireframes: add and edit form full size"><img src="assets/work/servesmart/wire-b-2.jpg" alt="Study Notes wireframes: add and edit form" loading="lazy"></a><figcaption class="credit">Study Notes wireframes: add and edit form</figcaption></figure></div>
+  </article>
+  <nav class="next wrap" aria-label="Next story"><a href="xbox-launch-campaign.html"><span class="kicker kicker--red">Next story</span><strong><span>Xbox Series X|S launch campaign</span></strong></a></nav>
+</main>
+<footer class="footer">
+  <div class="wrap footer__in">
+    <span>The Diana Dispatch. Written, designed and printed by Diana Kim, Vancouver.</span>
+    <nav aria-label="Footer"><a href="index.html#work">Work</a><a href="about.html">About</a><a href="mailto:kas7716@gmail.com">Email</a><a href="https://www.linkedin.com/in/yuhan-kim-8118813b3/" rel="noopener">LinkedIn</a></nav>
+  </div>
+</footer>
+
+<script src="js/main.js?v=7cb94e91" defer></script>
+</body>
+</html>
