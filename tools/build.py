@@ -213,7 +213,7 @@ STORIES = [
         "kind": "Mobile app", "when": "BCIT, 2026",
         "deck": "A menu study app for restaurant servers, built in React Native after my own shifts at Banju.",
         "status": "",
-        "facts": [("Discipline", "Mobile app design and development"), ("Course", "MDIA 4295 App Development Strategy 2, BCIT"), ("Team", "Solo"), ("Built with", "React Native, Expo, React Navigation, AsyncStorage, Wikipedia API"), ("AI use", "Built with OpenAI Codex assistance, with my instructor's permission")],
+        "facts": [("Discipline", "Mobile app design and development"), ("Course", "MDIA 4295 App Development Strategy 2, BCIT"), ("Team", "Solo"), ("Built with", "React Native, Expo, React Navigation, AsyncStorage, Wikipedia API")],
         "sections": [
             ("Why I made it", [
                 "Working at Banju made me want a way to review ingredients and possible changes before a shift, especially when I have to explain dishes in English.",
