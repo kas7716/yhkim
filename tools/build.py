@@ -309,6 +309,49 @@ STORIES = [
         ],
     },
     {
+        "slug": "fruity-lab", "img": "assets/work/fruitylab/lead.jpg", "lead": "assets/work/fruitylab/lead.jpg", "color": True, "page": "B4",
+        "credit": "Fruity Lab style guide: logo lockups and the mood based colour system.",
+        "title": "Fruity Lab", "short": "Fruity Lab",
+        "kind": "Brand identity", "when": "BCIT",
+        "deck": "A branding package for a creative brand that turns three moods into three fruits, each with its own palette.",
+        "status": "",
+        "facts": [("Discipline", "Brand identity"), ("Type", "School project, BCIT"), ("Team", "Solo"), ("Pieces", "Logo system, colour system, typography, applications")],
+        "sections": [
+            ("The idea", [
+                "Fruity Lab is a creative brand that shows contrasting moods through minimal, fruit inspired design. It runs on three moods, and each one has a fruit: Tomato for energy, Fig for emotion, Cherry for clarity.",
+            ], []),
+            ("Three moods", [], [
+                ("Tomato", "Bold, contrast, experimental."),
+                ("Fig", "Warm, organic, soft."),
+                ("Cherry", "Minimal, modern, balanced."),
+            ]),
+            ("Colour", [
+                "Instead of one brand colour, Fruity Lab has a palette for each mood. I sampled the colours from a moodboard for each mood, then refined them with contrast and accessibility checks.",
+            ], []),
+            ("The logo", [
+                "I sketched fruit forms by hand and looked for a shape that could hold both halves of the name. The final mark is a fruit that is also a laboratory flask, with a leaf on top. It works in horizontal and vertical lockups.",
+            ], []),
+            ("Type and applications", [
+                "Montserrat sets the headlines, Playfair Display the subheads and Poppins the body text. I applied the identity to a shop sign, a sweatshirt, business cards and pins.",
+            ], []),
+        ],
+        "pull": "A palette for each mood instead of one brand colour.",
+        "gallery": [
+            "## Logo",
+            ("Fruit form experiments", "is-half", "assets/work/fruitylab/logo-sketches.jpg"),
+            ("From first concept to final mark", "is-half", "assets/work/fruitylab/logo-system.jpg"),
+            ("Logo lockups", "is-full", "assets/work/fruitylab/logo-lockups.jpg"),
+            "## System",
+            ("Colour system: energy, emotion and clarity palettes", "is-half", "assets/work/fruitylab/colour-system.jpg"),
+            ("Typography system", "is-half", "assets/work/fruitylab/typography.jpg"),
+            "## Applications",
+            ("Shop sign", "is-half", "assets/work/fruitylab/sign.jpg"),
+            ("Sweatshirt", "is-half", "assets/work/fruitylab/sweatshirt.jpg"),
+            ("Business cards", "is-half", "assets/work/fruitylab/cards.jpg"),
+            ("Pins", "is-half", "assets/work/fruitylab/pins.jpg"),
+        ],
+    },
+    {
         "slug": "xbox-launch-campaign", "img": "assets/img/xbox.jpg", "page": "C1",
         "title": "Xbox Series X|S launch campaign", "short": "Xbox launch campaign",
         "kind": "Graphic design", "when": "Korea, 2020",
@@ -331,7 +374,7 @@ STORIES = [
     },
 ]
 
-HELD = [("Fruity Lab", "Brand identity")]
+HELD = []
 
 EXPERIENCE = [
     ("Now", "New Media Design and Web Development, BCIT", "Full time student in Vancouver, building this portfolio toward an internship."),
