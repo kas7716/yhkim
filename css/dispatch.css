@@ -355,3 +355,47 @@ ul, ol { list-style: none; }
 @media (hover: none) { .cover { cursor: auto; } .cover__cursor { display: none; } }
 
 .proto .demo { width: min(100%, 22rem); height: auto; border-radius: 1.8rem; box-shadow: 0 30px 46px -26px rgba(22, 20, 18, 0.75); background: #000; }
+
+/* Circulation: the readers count, printed above the footer like a newspaper's circulation line */
+[hidden] { display: none !important; }
+.circulation { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem clamp(1.2rem, 4vw, 3.5rem); padding-block: 1.1rem 0.9rem; border-bottom: var(--hair); }
+.circulation__label { padding-right: clamp(1rem, 3vw, 2.5rem); border-right: var(--hair); align-self: center; }
+.circulation__item { display: flex; align-items: baseline; gap: 0.7rem; }
+.circulation__item strong { font-weight: 900; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; font-size: clamp(2rem, 4.2vw, 3.2rem); line-height: 0.9; letter-spacing: -0.04em; font-variant-numeric: lining-nums tabular-nums; }
+.circulation__item .kicker { color: var(--soft); }
+
+/* Letters to the editor: the guestbook */
+.letters { scroll-margin-top: 4rem; padding-bottom: clamp(1rem, 3vw, 2rem); }
+.letters__grid { display: grid; grid-template-columns: minmax(18rem, 0.8fr) 1.7fr; gap: clamp(1.5rem, 4vw, 3.5rem); padding-top: clamp(1.2rem, 2.6vw, 2rem); align-items: start; }
+.dear { background: var(--sheet); border: 2px dashed var(--ink); padding: 1.3rem 1.4rem 1.2rem; display: grid; gap: 0.9rem; position: relative; }
+.dear__salute { font-size: 2.1rem; margin-top: -0.2rem; }
+.field { display: grid; gap: 0.3rem; }
+.field input, .field textarea { width: 100%; font: inherit; font-size: 1rem; color: var(--ink); background: var(--paper); border: 0; border-bottom: 2px solid var(--ink); border-radius: 0; padding: 0.55rem 0.6rem; resize: vertical; }
+.field textarea { min-height: 7.5rem; line-height: 1.45rem; background-color: transparent; background-image: repeating-linear-gradient(transparent 0, transparent calc(1.45rem - 1px), rgba(22, 20, 18, 0.2) calc(1.45rem - 1px), rgba(22, 20, 18, 0.2) 1.45rem); background-position: 0 0.55rem; background-attachment: local; }
+.field input:focus, .field textarea:focus { outline: 0; border-bottom-color: var(--red); box-shadow: 0 3px 0 var(--red); }
+.field ::placeholder { color: var(--soft); opacity: 0.8; font-style: italic; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.dear__row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.dear__row .btn { cursor: pointer; background-color: var(--red); }
+.dear__row .btn:disabled { opacity: 0.55; cursor: progress; transform: none; box-shadow: none; }
+.dear__count { color: var(--soft); font-variant-numeric: tabular-nums; }
+.dear__note { font-size: 0.88rem; color: var(--soft); line-height: 1.35; }
+.dear__status { font-family: var(--pen); font-size: 1.5rem; line-height: 1; min-height: 1.5rem; margin-top: -0.3rem; }
+.dear__status[data-kind="ok"] { color: var(--ink); }
+.dear__status[data-kind="error"] { color: var(--red); }
+
+.letters__list { columns: 2 17rem; column-gap: clamp(1.4rem, 3vw, 2.6rem); column-rule: var(--hair); }
+.letter { break-inside: avoid; padding-bottom: 1rem; margin-bottom: 1rem; border-bottom: var(--hair); }
+.letter:last-child { border-bottom: 0; }
+.letter__body { font-style: italic; font-variation-settings: "SOFT" 60, "WONK" 1; font-size: 1.04rem; line-height: 1.5; overflow-wrap: anywhere; white-space: pre-line; text-wrap: pretty; }
+.letter__body::before { content: "\201C"; color: var(--red); font-style: normal; font-weight: 900; font-size: 2.6rem; line-height: 0; vertical-align: -0.42em; margin-right: 0.12em; }
+.letter__by { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.2rem 1rem; margin-top: 0.55rem; }
+.letter__by span::before { content: "Signed, "; color: var(--soft); font-weight: 600; }
+.letter__by time { color: var(--soft); font-weight: 600; }
+.letter--empty { border-bottom: 0; column-span: all; }
+
+@media (max-width: 900px) {
+  .letters__grid { grid-template-columns: 1fr; }
+  .letters__list { columns: 1; }
+  .circulation__label { border-right: 0; flex-basis: 100%; padding-right: 0; }
+}

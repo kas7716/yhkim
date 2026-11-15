@@ -14,12 +14,12 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/dispatch.css?v=a74455ec">
+<link rel="stylesheet" href="css/dispatch.css?v=3902fd3f">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <div class="ticker" aria-label="Latest">
-  <div class="ticker__track"><div class="ticker__group"><span class="ticker__item"><a href="about.html#contact">Diana Kim is open to internship placements in Vancouver</a></span><span class="ticker__item"><a href="banju.html">New in this edition: menus and posters for Banju</a></span><span class="ticker__item"><a href="first7.html">First7, an app for your first week in Canada</a></span><span class="ticker__item"><a href="xbox-launch-campaign.html">Xbox Series X|S and the Halo Infinite gift set</a></span><span class="ticker__item"><a href="rootly.html">Rootly, a plant brand for nervous beginners</a></span></div><div class="ticker__group" aria-hidden="true"><span class="ticker__item"><a tabindex="-1" href="about.html#contact">Diana Kim is open to internship placements in Vancouver</a></span><span class="ticker__item"><a tabindex="-1" href="banju.html">New in this edition: menus and posters for Banju</a></span><span class="ticker__item"><a tabindex="-1" href="first7.html">First7, an app for your first week in Canada</a></span><span class="ticker__item"><a tabindex="-1" href="xbox-launch-campaign.html">Xbox Series X|S and the Halo Infinite gift set</a></span><span class="ticker__item"><a tabindex="-1" href="rootly.html">Rootly, a plant brand for nervous beginners</a></span></div></div>
+  <div class="ticker__track"><div class="ticker__group"><span class="ticker__item"><a href="about.html#contact">Diana Kim is open to internship placements in Vancouver</a></span><span class="ticker__item"><a href="banju.html">New in this edition: menus and posters for Banju</a></span><span class="ticker__item"><a href="first7.html">First7, an app for your first week in Canada</a></span><span class="ticker__item"><a href="xbox-launch-campaign.html">Xbox Series X|S and the Halo Infinite gift set</a></span><span class="ticker__item"><a href="rootly.html">Rootly, a plant brand for nervous beginners</a></span><span class="ticker__item"><a href="index.html#letters">Letters to the editor are open: sign the guestbook</a></span></div><div class="ticker__group" aria-hidden="true"><span class="ticker__item"><a tabindex="-1" href="about.html#contact">Diana Kim is open to internship placements in Vancouver</a></span><span class="ticker__item"><a tabindex="-1" href="banju.html">New in this edition: menus and posters for Banju</a></span><span class="ticker__item"><a tabindex="-1" href="first7.html">First7, an app for your first week in Canada</a></span><span class="ticker__item"><a tabindex="-1" href="xbox-launch-campaign.html">Xbox Series X|S and the Halo Infinite gift set</a></span><span class="ticker__item"><a tabindex="-1" href="rootly.html">Rootly, a plant brand for nervous beginners</a></span><span class="ticker__item"><a tabindex="-1" href="index.html#letters">Letters to the editor are open: sign the guestbook</a></span></div></div>
 </div>
 <header class="wrap">
   <div class="masthead">
@@ -35,6 +35,7 @@
     <nav class="bar__nav" aria-label="Sections">
       <a href="index.html" aria-current="page">Front page</a>
       <a href="index.html#work">Work</a>
+      <a href="index.html#letters">Letters</a>
       <a href="about.html">About</a>
       <a href="about.html#contact">Contact</a>
     </nav>
@@ -97,6 +98,23 @@
     </div>
   </section>
 
+  <section class="section wrap letters" id="letters" aria-labelledby="letters-title" hidden>
+    <div class="section__head"><h2 class="section__title" id="letters-title">Letters to the editor</h2><p class="kicker">Guestbook</p></div>
+    <div class="letters__grid">
+      <form class="dear" id="letter-form" novalidate>
+        <p class="kicker kicker--red">Clip and send</p>
+        <p class="dear__salute pen">Dear Editor,</p>
+        <label class="field"><span class="kicker">Your letter</span><textarea name="message" rows="5" maxlength="300" required placeholder="Say hello, leave a note, or tell me what you liked."></textarea></label>
+        <label class="field"><span class="kicker">Signed</span><input name="name" type="text" maxlength="30" required autocomplete="nickname" placeholder="Your name or initials"></label>
+        <input class="hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="dear__row"><button class="btn btn--fill" type="submit">Send letter</button><span class="dear__count kicker" data-count>0 / 300</span></div>
+        <p class="dear__note">English or Korean, both are welcome. Short and kind letters get printed straight away.</p>
+        <p class="dear__status" data-status role="status" aria-live="polite"></p>
+      </form>
+      <ul class="letters__list" data-letters aria-label="Printed letters"></ul>
+    </div>
+  </section>
+
   <section class="callout">
     <img class="callout__bg" src="assets/img/press.jpg" alt="" loading="lazy">
     <div class="wrap callout__in">
@@ -106,6 +124,13 @@
   </section>
 </main>
 <footer class="footer">
+  <div class="wrap">
+    <div class="circulation" data-circulation hidden>
+      <span class="kicker kicker--red circulation__label">Circulation</span>
+      <p class="circulation__item"><strong data-readers="today">0</strong><span class="kicker">Readers today</span></p>
+      <p class="circulation__item"><strong data-readers="total">0</strong><span class="kicker">Readers to date</span></p>
+    </div>
+  </div>
   <div class="wrap footer__in">
     <span>The Diana Dispatch. Written, designed and printed by Diana Kim, Vancouver.</span>
     <nav aria-label="Footer"><a href="index.html#work">Work</a><a href="about.html">About</a><a href="mailto:kas7716@gmail.com">Email</a><a href="https://www.linkedin.com/in/yuhan-kim-8118813b3/" rel="noopener">LinkedIn</a></nav>
@@ -113,5 +138,6 @@
 </footer>
 <script src="js/matter.min.js" defer></script>
 <script src="js/main.js?v=7cb94e91" defer></script>
+<script type="module" src="js/letters.js?v=29fcd9e3"></script>
 </body>
 </html>

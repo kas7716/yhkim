@@ -31,6 +31,7 @@ TICKER = [
     ("First7, an app for your first week in Canada", "first7.html"),
     ("Xbox Series X|S and the Halo Infinite gift set", "xbox-launch-campaign.html"),
     ("Rootly, a plant brand for nervous beginners", "rootly.html"),
+    ("Letters to the editor are open: sign the guestbook", "index.html#letters"),
 ]
 
 SCRAPS = [
@@ -471,6 +472,7 @@ def top(current, inner=True):
     <nav class="bar__nav" aria-label="Sections">
       {nav('Front page', 'index.html', 'home')}
       {nav('Work', 'index.html#work', 'work')}
+      {nav('Letters', 'index.html#letters', 'letters')}
       {nav('About', 'about.html', 'about')}
       {nav('Contact', 'about.html#contact', 'contact')}
     </nav>
@@ -500,6 +502,13 @@ def callout(title_html, extra="", anchor=""):
 def foot(matter=False):
     li = f'<a href="{SITE["linkedin"]}" rel="noopener">LinkedIn</a>' if SITE["linkedin"] else ""
     return f"""<footer class="footer">
+  <div class="wrap">
+    <div class="circulation" data-circulation hidden>
+      <span class="kicker kicker--red circulation__label">Circulation</span>
+      <p class="circulation__item"><strong data-readers="today">0</strong><span class="kicker">Readers today</span></p>
+      <p class="circulation__item"><strong data-readers="total">0</strong><span class="kicker">Readers to date</span></p>
+    </div>
+  </div>
   <div class="wrap footer__in">
     <span>{e(SITE['name'])}. Written, designed and printed by {e(SITE['person'])}, Vancouver.</span>
     <nav aria-label="Footer"><a href="index.html#work">Work</a><a href="about.html">About</a><a href="mailto:{SITE['email']}">Email</a>{li}</nav>
@@ -507,6 +516,7 @@ def foot(matter=False):
 </footer>
 {'<script src="js/matter.min.js" defer></script>' if matter else ''}
 <script src="js/main.js?v={asset_v("js/main.js")}" defer></script>
+<script type="module" src="js/letters.js?v={asset_v("js/letters.js")}"></script>
 </body>
 </html>
 """
@@ -567,6 +577,23 @@ def page_home():
       <div class="column"><p class="kicker kicker--red">Then</p><h3>Before design</h3><p>I spent four years in Seoul as a product manager and project manager, launching products for Xbox and sourcing for a CJ ENM affiliate.</p></div>
       <div class="column"><p class="kicker kicker--red">Now</p><h3>In school, and in print</h3><p>I study New Media Design and Web Development at BCIT, and I design menus and posters for a restaurant downtown.</p></div>
       <div class="column"><p class="kicker kicker--red">Next</p><h3>An internship</h3><p>I am looking for a placement in Vancouver where design has to answer to a brief, a budget and a real audience.</p><p><a class="textlink" href="about.html">Read the full profile</a></p></div>
+    </div>
+  </section>
+
+  <section class="section wrap letters" id="letters" aria-labelledby="letters-title" hidden>
+    <div class="section__head"><h2 class="section__title" id="letters-title">Letters to the editor</h2><p class="kicker">Guestbook</p></div>
+    <div class="letters__grid">
+      <form class="dear" id="letter-form" novalidate>
+        <p class="kicker kicker--red">Clip and send</p>
+        <p class="dear__salute pen">Dear Editor,</p>
+        <label class="field"><span class="kicker">Your letter</span><textarea name="message" rows="5" maxlength="300" required placeholder="Say hello, leave a note, or tell me what you liked."></textarea></label>
+        <label class="field"><span class="kicker">Signed</span><input name="name" type="text" maxlength="30" required autocomplete="nickname" placeholder="Your name or initials"></label>
+        <input class="hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="dear__row"><button class="btn btn--fill" type="submit">Send letter</button><span class="dear__count kicker" data-count>0 / 300</span></div>
+        <p class="dear__note">English or Korean, both are welcome. Short and kind letters get printed straight away.</p>
+        <p class="dear__status" data-status role="status" aria-live="polite"></p>
+      </form>
+      <ul class="letters__list" data-letters aria-label="Printed letters"></ul>
     </div>
   </section>
 
