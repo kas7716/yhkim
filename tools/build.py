@@ -582,6 +582,7 @@ def page_home():
 
   <section class="section wrap letters" id="letters" aria-labelledby="letters-title" hidden>
     <div class="section__head section__head--small"><h2 class="section__title" id="letters-title">Letters to the editor</h2><p class="kicker">Guestbook</p></div>
+    <p class="owner" data-owner hidden><span class="kicker kicker--red">Editor's desk</span><button class="owner__btn kicker" type="button" data-owner-btn>Sign in with Google</button><span class="owner__msg" data-owner-msg role="status"></span></p>
     <div class="letters__grid">
       <form class="dear" id="letter-form" novalidate>
         <p class="dear__head"><span class="kicker kicker--red">Clip and send</span><span class="dear__salute pen">Dear Editor,</span></p>

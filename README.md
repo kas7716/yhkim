@@ -13,4 +13,4 @@ Until `projectId` is filled in, both widgets stay hidden.
 - Security rules live in `firestore.rules`. Paste them into Firebase console, Firestore, Rules, then Publish.
 - Counting: one reader is counted once per browser per day (Vancouver time) and once for the total.
 - Open any page with `?owner` once to keep your own visits out of the count. Use `?owner=off` to undo.
-- To remove a letter, delete its document in the `letters` collection in the Firebase console.
+- To delete a letter: open the site with `?owner`, press "Sign in with Google" in the Editor's desk line (only kas7716@gmail.com works), then use the Delete link under a letter. This is enforced by `firestore.rules`, not by the page.

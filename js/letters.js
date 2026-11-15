@@ -16,6 +16,7 @@ const MAX_NAME = 30;
 const MAX_MSG = 300;
 const COOLDOWN_MS = 60 * 1000;
 const SHOW = 40;                      /* letters printed on the page */
+const OWNER_EMAIL = "kas7716@gmail.com"; /* the only account that may delete letters (enforced by firestore.rules) */
 
 const $ = (sel, root) => (root || document).querySelector(sel);
 
@@ -46,9 +47,15 @@ async function start() {
     import(SDK + "firebase-app.js"),
     import(SDK + "firebase-firestore.js")
   ]);
-  const db = fs.getFirestore(initializeApp(FIREBASE));
+  const app = initializeApp(FIREBASE);
+  const db = fs.getFirestore(app);
   circulation(db, fs);
-  letters(db, fs);
+  /* The sign in tools are only loaded when the page was opened with ?owner. */
+  let authApi = null;
+  if (store.get("dd-owner") === "1") {
+    try { authApi = await import(SDK + "firebase-auth.js"); } catch (e) { /* no editor tools */ }
+  }
+  letters(db, fs, app, authApi);
 }
 
 /* ---------- Circulation: readers today and readers to date ---------- */
@@ -80,7 +87,7 @@ async function circulation(db, fs) {
 }
 
 /* ---------- Letters to the editor ---------- */
-function letters(db, fs) {
+function letters(db, fs, app, authApi) {
   const section = $("#letters");
   if (!section) return;
   const list = $("[data-letters]", section);
@@ -90,6 +97,7 @@ function letters(db, fs) {
   const nameEl = form.elements.name;
   const countEl = $("[data-count]", form);
   const col = fs.collection(db, "letters");
+  let isEditor = false;
 
   function say(text, kind) {
     status.textContent = text;
@@ -109,8 +117,29 @@ function letters(db, fs) {
     const when = document.createElement("time");
     when.textContent = fmtDate(l.date);
     by.append(who, when);
+    if (isEditor && l.id) {
+      const del = document.createElement("button");
+      del.type = "button";
+      del.className = "letter__del";
+      del.textContent = "Delete";
+      del.addEventListener("click", function () { removeLetter(l.id, li, del); });
+      by.append(del);
+    }
     li.append(p, by);
     return li;
+  }
+
+  async function removeLetter(id, li, btn) {
+    if (!window.confirm("Delete this letter for good? This cannot be undone.")) return;
+    btn.disabled = true;
+    try {
+      await fs.deleteDoc(fs.doc(db, "letters", id));
+      li.remove();
+      if (!list.children.length) list.append(empty());
+    } catch (e) {
+      btn.disabled = false;
+      window.alert("Could not delete. Please sign in again as the editor.");
+    }
   }
 
   function empty() {
@@ -128,7 +157,7 @@ function letters(db, fs) {
       snap.forEach(function (doc) {
         const d = doc.data();
         const date = d.createdAt && d.createdAt.toDate ? d.createdAt.toDate() : new Date();
-        list.append(letterEl({ name: d.name, message: d.message, date: date }));
+        list.append(letterEl({ id: doc.id, name: d.name, message: d.message, date: date }));
       });
       if (!list.children.length) list.append(empty());
       section.hidden = false;
@@ -153,11 +182,11 @@ function letters(db, fs) {
     btn.disabled = true;
     say("Sending to the press room...", "");
     try {
-      await fs.addDoc(col, { name: name, message: message, createdAt: fs.serverTimestamp() });
+      const ref = await fs.addDoc(col, { name: name, message: message, createdAt: fs.serverTimestamp() });
       store.set("dd-last", String(Date.now()));
       const placeholder = $("[data-empty]", list);
       if (placeholder) placeholder.remove();
-      list.prepend(letterEl({ name: name, message: message, date: new Date() }));
+      list.prepend(letterEl({ id: ref.id, name: name, message: message, date: new Date() }));
       form.reset();
       countEl.textContent = "0 / " + MAX_MSG;
       say("Letter received. Thank you for writing.", "ok");
@@ -168,5 +197,44 @@ function letters(db, fs) {
     }
   });
 
+  editorDesk();
   load();
+
+  /* ---------- Editor's desk: Google sign in, only for the owner ---------- */
+  function editorDesk() {
+    const desk = $("[data-owner]", section);
+    if (!desk || !authApi) return;
+    const auth = authApi.getAuth(app);
+    const btn = $("[data-owner-btn]", desk);
+    const msg = $("[data-owner-msg]", desk);
+    let notice = "";
+    desk.hidden = false;
+    section.hidden = false;
+
+    authApi.onAuthStateChanged(auth, function (user) {
+      const ok = !!(user && user.emailVerified && user.email === OWNER_EMAIL);
+      if (user && !ok) {
+        notice = "That account is not the editor.";
+        msg.textContent = notice;
+        authApi.signOut(auth);
+        return;
+      }
+      const changed = ok !== isEditor;
+      isEditor = ok;
+      btn.textContent = ok ? "Sign out" : "Sign in with Google";
+      msg.textContent = ok ? "Signed in as editor. Delete buttons are on." : notice;
+      if (changed) load();
+    });
+
+    btn.addEventListener("click", async function () {
+      if (auth.currentUser) { authApi.signOut(auth); return; }
+      notice = "";
+      msg.textContent = "";
+      try {
+        await authApi.signInWithPopup(auth, new authApi.GoogleAuthProvider());
+      } catch (e) {
+        msg.textContent = "Sign in was cancelled.";
+      }
+    });
+  }
 }

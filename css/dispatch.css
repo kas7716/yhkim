@@ -397,6 +397,14 @@ ul, ol { list-style: none; }
 .letter__by time { color: var(--soft); font-weight: 600; }
 .letter--empty { border-bottom: 0; grid-column: 1 / -1; }
 
+.owner { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 1rem; padding-top: 0.6rem; }
+.owner__btn { cursor: pointer; background: none; color: var(--ink); border: 2px solid var(--ink); padding: 0.25rem 0.7rem; }
+.owner__btn:hover, .owner__btn:focus-visible { background: var(--ink); color: var(--paper); }
+.owner__msg { font-family: var(--pen); font-size: 1.25rem; line-height: 1; color: var(--red); }
+.letter__del { cursor: pointer; font: inherit; font-family: var(--label); font-stretch: 68%; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.76rem; color: var(--red); background: none; border: 0; padding: 0; text-decoration: underline; text-underline-offset: 0.2em; }
+.letter__del:hover { color: var(--ink); }
+.letter__del:disabled { opacity: 0.5; cursor: progress; }
+
 @media (max-width: 900px) {
   .letters__grid { grid-template-columns: 1fr; }
   .letters__list { grid-template-columns: 1fr; max-height: 17rem; }
