@@ -433,7 +433,9 @@ def head(title, desc):
 <meta property="og:type" content="website">
 <meta property="og:title" content="{e(full)}">
 <meta property="og:description" content="{e(desc)}">
-<meta property="og:image" content="assets/img/cover.jpg">
+<meta property="og:image" content="https://kas7716.github.io/yhkim/assets/img/cover-printed.jpg">
+<meta property="og:url" content="https://kas7716.github.io/yhkim/">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#e9e5dc">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
