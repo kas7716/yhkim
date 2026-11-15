@@ -63,10 +63,12 @@ async function circulation(db, fs) {
   /* A reader is counted once per browser per day, and once ever for the total. */
   if (store.get("dd-owner") !== "1") {
     if (store.get("dd-day") !== today) {
-      try { await bump(dayRef); store.set("dd-day", today); } catch (e) { /* ignore */ }
+      store.set("dd-day", today);
+      try { await bump(dayRef); } catch (e) { store.set("dd-day", ""); }
     }
     if (store.get("dd-first") !== "1") {
-      try { await bump(totalRef); store.set("dd-first", "1"); } catch (e) { /* ignore */ }
+      store.set("dd-first", "1");
+      try { await bump(totalRef); } catch (e) { store.set("dd-first", ""); }
     }
   }
   try {

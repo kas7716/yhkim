@@ -581,16 +581,13 @@ def page_home():
   </section>
 
   <section class="section wrap letters" id="letters" aria-labelledby="letters-title" hidden>
-    <div class="section__head"><h2 class="section__title" id="letters-title">Letters to the editor</h2><p class="kicker">Guestbook</p></div>
+    <div class="section__head section__head--small"><h2 class="section__title" id="letters-title">Letters to the editor</h2><p class="kicker">Guestbook</p></div>
     <div class="letters__grid">
       <form class="dear" id="letter-form" novalidate>
-        <p class="kicker kicker--red">Clip and send</p>
-        <p class="dear__salute pen">Dear Editor,</p>
-        <label class="field"><span class="kicker">Your letter</span><textarea name="message" rows="5" maxlength="300" required placeholder="Say hello, leave a note, or tell me what you liked."></textarea></label>
-        <label class="field"><span class="kicker">Signed</span><input name="name" type="text" maxlength="30" required autocomplete="nickname" placeholder="Your name or initials"></label>
+        <p class="dear__head"><span class="kicker kicker--red">Clip and send</span><span class="dear__salute pen">Dear Editor,</span></p>
+        <label class="field"><span class="field__top"><span class="kicker">Your letter</span><span class="dear__count kicker" data-count>0 / 300</span></span><textarea name="message" rows="3" maxlength="300" required placeholder="Say hello or leave a note. English or Korean."></textarea></label>
         <input class="hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="dear__row"><button class="btn btn--fill" type="submit">Send letter</button><span class="dear__count kicker" data-count>0 / 300</span></div>
-        <p class="dear__note">English or Korean, both are welcome. Short and kind letters get printed straight away.</p>
+        <div class="dear__row"><label class="field"><span class="kicker">Signed</span><input name="name" type="text" maxlength="30" required autocomplete="nickname" placeholder="Name or initials"></label><button class="btn btn--fill" type="submit">Send</button></div>
         <p class="dear__status" data-status role="status" aria-live="polite"></p>
       </form>
       <ul class="letters__list" data-letters aria-label="Printed letters"></ul>
