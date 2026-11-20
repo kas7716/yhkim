@@ -12,7 +12,7 @@ Bugs follow the status flow from Week 5:
 
 1. A bug is submitted as a GitHub Issue with the `open` label, written in the Week 4 bug report format (Title, Status, Description, Steps to Reproduce, Expected Results, Actual Results, Configuration, Priority, Severity, Type, Assignee).
 2. QA reviews it. If it does not meet the requirements of a bug, it gets the `rejected` label and is closed.
-3. The bug is assigned to the developer (Diana) and fixed in a commit that references it (`Fixes #n`).
+3. The bug is assigned to the developer (Diana) and fixed in a commit that references it (`refs #n`, so the issue stays open for QA).
 4. The developer comments on how it was fixed, adds the `retest` label and reassigns the issue to the instructor (QA).
 5. QA retests with the Steps to Reproduce, removes `retest` and closes the issue.
 
