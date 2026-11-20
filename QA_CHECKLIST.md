@@ -2,7 +2,7 @@
 
 MDIA 4590 Quality Assurance, Assignment 2
 Tester and developer: Diana Kim (@kas7716)
-Site: https://kas7716.github.io/yhkim/
+Site: https://yuhankim.com/
 Repository: https://github.com/kas7716/yhkim
 Issue tracking: [GitHub Issues](https://github.com/kas7716/yhkim/issues)
 
