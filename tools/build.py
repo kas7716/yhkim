@@ -420,7 +420,7 @@ SCRIBBLE = '<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="tr
 CIRCLE = '<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M8 22 C 6 6, 40 2, 62 3 S 98 10, 94 24 S 60 39, 36 37 S 2 34, 6 16"/></svg>'
 
 
-SITE_URL = "https://kas7716.github.io/yhkim/"
+SITE_URL = "https://yuhankim.com/"
 RESUME = "Diana_Yuhan_Kim_Resume.pdf"
 
 
@@ -439,7 +439,7 @@ def head(title, desc, path="", image="assets/img/cover-printed.jpg", base=False)
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:image" content="{SITE_URL}{image}">
 <meta property="og:url" content="{SITE_URL}{path}">
-<link rel="canonical" href="{SITE_URL}{path}">{chr(10) + '<base href="/yhkim/">' if base else ''}
+<link rel="canonical" href="{SITE_URL}{path}">{chr(10) + '<base href="/">' if base else ''}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#e9e5dc">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -698,7 +698,7 @@ def page_about():
 
 
 def page_404():
-    return head("Page not found", "This page is not in this edition.", "404.html", base=True).replace('<link rel="canonical" href="https://kas7716.github.io/yhkim/404.html">\n', "") + top("") + """<main id="main" class="wrap notfound">
+    return head("Page not found", "This page is not in this edition.", "404.html", base=True).replace(f'<link rel="canonical" href="{SITE_URL}404.html">\n', "") + top("") + """<main id="main" class="wrap notfound">
   <p class="kicker kicker--red">Correction</p>
   <h1 class="article__title">This page did not make the edition.</h1>
   <div class="actions"><a class="btn" href="index.html">Back to the front page</a></div>
