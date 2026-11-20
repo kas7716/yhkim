@@ -261,7 +261,7 @@ STORIES = [
     {
         "slug": "k-sip", "img": "assets/work/ksip/lead.jpg", "thumb": "assets/img/ksip.jpg", "lead": "assets/work/ksip/lead.jpg", "color": True, "page": "B3",
         "credit": "K-Sip hi-fi prototype: landing page, product list, product detail and age verification.",
-        "title": "K-Sip to Taste Together", "short": "K-Sip and Taste Together",
+        "title": "K-Sip to Taste Together", "short": "K-Sip to Taste Together",
         "kind": "UI/UX and business model", "when": "BCIT, 2026",
         "deck": "A Korean spirits marketplace I designed and tested, and the party kit business it grew into.",
         "status": "",
@@ -420,7 +420,11 @@ SCRIBBLE = '<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="tr
 CIRCLE = '<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M8 22 C 6 6, 40 2, 62 3 S 98 10, 94 24 S 60 39, 36 37 S 2 34, 6 16"/></svg>'
 
 
-def head(title, desc):
+SITE_URL = "https://kas7716.github.io/yhkim/"
+RESUME = "Diana_Yuhan_Kim_Resume.pdf"
+
+
+def head(title, desc, path="", image="assets/img/cover-printed.jpg", base=False):
     full = f"{title} | {SITE['name']}" if title else f"{SITE['name']} | Portfolio of {SITE['person']}"
     return f"""<!doctype html>
 <html lang="en">
@@ -433,8 +437,9 @@ def head(title, desc):
 <meta property="og:type" content="website">
 <meta property="og:title" content="{e(full)}">
 <meta property="og:description" content="{e(desc)}">
-<meta property="og:image" content="https://kas7716.github.io/yhkim/assets/img/cover-printed.jpg">
-<meta property="og:url" content="https://kas7716.github.io/yhkim/">
+<meta property="og:image" content="{SITE_URL}{image}">
+<meta property="og:url" content="{SITE_URL}{path}">
+<link rel="canonical" href="{SITE_URL}{path}">{chr(10) + '<base href="/yhkim/">' if base else ''}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#e9e5dc">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -449,7 +454,8 @@ def head(title, desc):
 
 def ticker():
     group = "".join(f'<span class="ticker__item"><a href="{u}">{e(t)}</a></span>' for t, u in TICKER)
-    return f"""<div class="ticker" aria-label="Latest">
+    return f"""<div class="ticker" aria-label="Latest" data-ticker>
+  <button class="ticker__pause" type="button" aria-pressed="false" data-ticker-btn>Pause</button>
   <div class="ticker__track"><div class="ticker__group">{group}</div><div class="ticker__group" aria-hidden="true">{group.replace('<a ', '<a tabindex="-1" ')}</div></div>
 </div>
 """
@@ -463,7 +469,7 @@ def top(current, inner=True):
     return ticker() + f"""<header class="wrap">
   <div class="masthead{' masthead--inner' if inner else ''}">
     <div class="ear"><strong>Weather</strong>Vancouver: rain, probably. Good day to stay in and read.</div>
-    <{tag} style="margin:0"><a class="masthead__title" href="index.html">{e(SITE['name'])}</a></{tag}>
+    <{tag} class="masthead__h"><a class="masthead__title" href="index.html">{e(SITE['name'])}</a></{tag}>
     <div class="ear ear--right"><strong>Price</strong>Free. Always was.<div class="barcode" aria-hidden="true"></div></div>
   </div>
   <div class="dateline"><span data-today>Vancouver edition</span><span>Design edition, {SITE['edition']}</span><span>Seoul to Vancouver</span><span>Written and designed by {e(SITE['person'])}</span></div>
@@ -487,6 +493,7 @@ def contact_actions():
     out = f'<a class="btn btn--fill" href="mailto:{SITE["email"]}">Email Diana</a>'
     if SITE["linkedin"]:
         out += f'<a class="btn" href="{SITE["linkedin"]}" rel="noopener">Connect on LinkedIn</a>'
+    out += f'<a class="btn" href="{RESUME}" download>Download resume (PDF)</a>'
     return out
 
 
@@ -494,7 +501,7 @@ def callout(title_html, extra="", anchor=""):
     return f"""  <section class="callout"{f' id="{anchor}"' if anchor else ''}>
     <img class="callout__bg" src="assets/img/press.jpg" alt="" loading="lazy">
     <div class="wrap callout__in{' contact' if extra else ''}">
-      <div style="display:grid; gap:2rem"><h2 class="callout__title">{title_html}</h2><div class="actions">{contact_actions()}</div></div>
+      <div class="callout__stack"><h2 class="callout__title">{title_html}</h2><div class="actions">{contact_actions()}</div></div>
       {extra}
     </div>
   </section>
@@ -513,7 +520,7 @@ def foot(matter=False):
   </div>
   <div class="wrap footer__in">
     <span>{e(SITE['name'])}. Written, designed and printed by {e(SITE['person'])}, Vancouver.</span>
-    <nav aria-label="Footer"><a href="index.html#work">Work</a><a href="about.html">About</a><a href="mailto:{SITE['email']}">Email</a>{li}</nav>
+    <nav aria-label="Footer"><a href="index.html#work">Work</a><a href="about.html">About</a><a href="mailto:{SITE['email']}">Email</a><a href="{RESUME}" download>Resume</a>{li}</nav>
   </div>
 </footer>
 {'<script src="js/matter.min.js" defer></script>' if matter else ''}
@@ -575,7 +582,7 @@ def page_home():
   </section>
 
   <section class="wrap" aria-label="About Diana">
-    <div class="columns" style="border-top: var(--thick)">
+    <div class="columns columns--rule">
       <div class="column"><p class="kicker kicker--red">Then</p><h3>Before design</h3><p>I spent four years in Seoul as a product manager and project manager, launching products for Xbox and sourcing for a CJ ENM affiliate.</p></div>
       <div class="column"><p class="kicker kicker--red">Now</p><h3>In school, and in print</h3><p>I study New Media Design and Web Development at BCIT, and I design menus and posters for a restaurant downtown.</p></div>
       <div class="column"><p class="kicker kicker--red">Next</p><h3>An internship</h3><p>I am looking for a placement in Vancouver where design has to answer to a brief, a budget and a real audience.</p><p><a class="textlink" href="about.html">Read the full profile</a></p></div>
@@ -636,8 +643,8 @@ def page_story(i):
             gal += frame(*g)
     color = " pic--color" if s.get("color") else ""
     status = f'<span class="status pen">{e(s["status"])}</span>' if s.get("status") else ""
-    link = f'<p style="margin-top:1rem"><a class="btn" href="{s["link"][1]}" rel="noopener">{e(s["link"][0])}</a></p>' if s.get("link") else ""
-    return head(s["title"], s["deck"]) + top("work") + f"""<main id="main">
+    link = f'<p class="article__link"><a class="btn" href="{s["link"][1]}" rel="noopener">{e(s["link"][0])}</a></p>' if s.get("link") else ""
+    return head(s["title"], s["deck"], s["slug"] + ".html", s.get("lead", s["img"])) + top("work") + f"""<main id="main">
   <article class="wrap">
     <header class="article__head">
       <div><a class="article__section kicker kicker--red" href="index.html#work">{e(s['kind'])}, {e(s['when'])}</a>
@@ -661,7 +668,7 @@ def page_about():
     exp = "".join(f'<li><span class="when">{e(w)}</span><div><h3>{e(t)}</h3><p>{e(d)}</p></div></li>' for w, t, d in EXPERIENCE)
     li = f'<p><a href="{SITE["linkedin"]}" rel="noopener">LinkedIn</a></p>' if SITE["linkedin"] else ""
     card = f'<div class="card"><p class="kicker kicker--red">Clip and keep</p><h3>{e(SITE["person"])}</h3><p>Graphic design, UI/UX, marketing<br>Vancouver, BC</p><p><a href="mailto:{SITE["email"]}">{SITE["email"]}</a></p>{li}</div>'
-    return head("About", "About Diana (Yuhan) Kim: designer in Vancouver with a marketing and product background from Seoul.") + top("about") + f"""<main id="main">
+    return head("About", "About Diana (Yuhan) Kim: designer in Vancouver with a marketing and product background from Seoul.", "about.html", "assets/img/diana.jpg") + top("about") + f"""<main id="main">
   <article class="wrap">
     <header class="article__head">
       <div><a class="article__section kicker kicker--red" href="index.html">The back page</a>
@@ -691,7 +698,7 @@ def page_about():
 
 
 def page_404():
-    return head("Page not found", "This page is not in this edition.") + top("") + """<main id="main" class="wrap notfound">
+    return head("Page not found", "This page is not in this edition.", "404.html", base=True).replace('<link rel="canonical" href="https://kas7716.github.io/yhkim/404.html">\n', "") + top("") + """<main id="main" class="wrap notfound">
   <p class="kicker kicker--red">Correction</p>
   <h1 class="article__title">This page did not make the edition.</h1>
   <div class="actions"><a class="btn" href="index.html">Back to the front page</a></div>
@@ -699,13 +706,68 @@ def page_404():
 """ + foot()
 
 
+def img_size(path):
+    """Width and height of a JPEG, PNG or WebP file, read from its header. No dependencies."""
+    f = ROOT / path
+    if not f.exists():
+        return None
+    b = f.read_bytes()
+    if b[:8] == b"\x89PNG\r\n\x1a\n":
+        return int.from_bytes(b[16:20], "big"), int.from_bytes(b[20:24], "big")
+    if b[:4] == b"RIFF" and b[8:12] == b"WEBP":
+        c = b[12:16]
+        if c == b"VP8X":
+            return int.from_bytes(b[24:27], "little") + 1, int.from_bytes(b[27:30], "little") + 1
+        if c == b"VP8 ":
+            return int.from_bytes(b[26:28], "little") & 0x3FFF, int.from_bytes(b[28:30], "little") & 0x3FFF
+        if c == b"VP8L":
+            v = int.from_bytes(b[21:25], "little")
+            return (v & 0x3FFF) + 1, ((v >> 14) & 0x3FFF) + 1
+    if b[:2] == b"\xff\xd8":
+        i = 2
+        while i < len(b) - 9:
+            if b[i] != 0xFF:
+                i += 1
+                continue
+            m = b[i + 1]
+            if m in (0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7, 0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF):
+                return int.from_bytes(b[i + 7:i + 9], "big"), int.from_bytes(b[i + 5:i + 7], "big")
+            i += 2 + int.from_bytes(b[i + 2:i + 4], "big")
+    return None
+
+
+def add_sizes(text):
+    """Give every <img> width and height so the browser reserves its space before it loads."""
+    import re
+
+    def fix(m):
+        tag = m.group(0)
+        if " width=" in tag:
+            return tag
+        src = re.search(r'src="([^"]+)"', tag)
+        size = img_size(src.group(1)) if src else None
+        if not size:
+            return tag
+        return tag[:-1] + f' width="{size[0]}" height="{size[1]}">'
+    return re.sub(r"<img\b[^>]*>", fix, text)
+
+
+def sitemap(pages):
+    urls = "".join(f"  <url><loc>{SITE_URL}{'' if p == 'index.html' else p}</loc></url>\n" for p in pages)
+    return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n'
+
+
 def main():
     out = {"index.html": page_home(), "about.html": page_about(), "404.html": page_404()}
     for i, s in enumerate(STORIES):
         out[s["slug"] + ".html"] = page_story(i)
     for name, text in out.items():
-        (ROOT / name).write_text(text, encoding="utf-8")
+        (ROOT / name).write_text(add_sizes(text), encoding="utf-8")
         print("wrote", name, len(text))
+    pages = [n for n in out if n != "404.html"]
+    (ROOT / "sitemap.xml").write_text(sitemap(pages), encoding="utf-8")
+    (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}sitemap.xml\n", encoding="utf-8")
+    print("wrote sitemap.xml, robots.txt")
 
 
 if __name__ == "__main__":
