@@ -3,6 +3,17 @@
   "use strict";
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* Ticker pause button: works with touch, mouse and keyboard (issue #10) */
+  var ticker = document.querySelector("[data-ticker]");
+  var tickerBtn = document.querySelector("[data-ticker-btn]");
+  if (ticker && tickerBtn) {
+    tickerBtn.addEventListener("click", function () {
+      var paused = ticker.classList.toggle("is-paused");
+      tickerBtn.setAttribute("aria-pressed", paused ? "true" : "false");
+      tickerBtn.textContent = paused ? "Play" : "Pause";
+    });
+  }
+
   /* Today's date in the dateline */
   var dateEl = document.querySelector("[data-today]");
   if (dateEl) {
