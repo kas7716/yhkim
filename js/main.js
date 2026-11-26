@@ -65,6 +65,58 @@
     });
   }
 
+  /* Image viewer: opens work images in place, closes with the X, a click outside, or Esc */
+  var shots = document.querySelectorAll(".work a[href], .phone a[href]");
+  if (shots.length && window.HTMLDialogElement) {
+    var box = document.createElement("dialog");
+    box.className = "lightbox";
+    box.setAttribute("aria-label", "Image viewer");
+    box.innerHTML = '<button class="lightbox__close" type="button" aria-label="Close image">&times;</button>' +
+      '<figure class="lightbox__fig"><img alt=""><figcaption class="credit"></figcaption></figure>';
+    document.body.appendChild(box);
+    var boxImg = box.querySelector("img");
+    var boxCap = box.querySelector("figcaption");
+    var opener = null;
+    var close = function () { if (box.open) box.close(); };
+    box.querySelector(".lightbox__close").addEventListener("click", close);
+    box.addEventListener("click", function (e) { if (e.target === box || e.target.classList.contains("lightbox__fig")) close(); });
+    box.addEventListener("close", function () {
+      document.documentElement.classList.remove("is-viewing");
+      boxImg.removeAttribute("src");
+      if (opener) opener.focus();
+    });
+    shots.forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
+        e.preventDefault();
+        var thumb = a.querySelector("img");
+        var cap = a.parentNode.querySelector("figcaption");
+        opener = a;
+        boxImg.src = a.href;
+        boxImg.alt = thumb ? thumb.alt : "";
+        boxCap.textContent = cap ? cap.textContent : "";
+        boxCap.hidden = !boxCap.textContent;
+        document.documentElement.classList.add("is-viewing");
+        box.showModal();
+      });
+    });
+  }
+
+  /* Live prototype: render the Figma frame at its real size, then scale it to fit the screen */
+  document.querySelectorAll("[data-fit]").forEach(function (frame) {
+    var size = frame.dataset.fit.split("x");
+    var fw = +size[0], fh = +size[1];
+    var holder = frame.parentNode;
+    var fit = function () {
+      var room = holder.parentNode.clientWidth;
+      var s = Math.min(1, room / fw, (window.innerHeight * 0.88) / fh);
+      frame.style.transform = "scale(" + s + ")";
+      holder.style.width = fw * s + "px";
+      holder.style.height = fh * s + "px";
+    };
+    fit();
+    window.addEventListener("resize", fit);
+  });
 
   /* Cover: a soft blob with a tail follows the cursor and shows Diana behind the paper */
   (function () {

@@ -347,6 +347,18 @@ ul, ol { list-style: none; }
 /* Live prototype */
 .proto { grid-column: 1 / -1; display: grid; justify-items: center; gap: 0.6rem; padding-block: 0.5rem 1rem; }
 .proto iframe { width: min(100%, 27rem); height: min(88vh, 58rem); border: 0; border-radius: 1.8rem; background: var(--sheet); box-shadow: 0 30px 46px -26px rgba(22, 20, 18, 0.75); }
+.proto__frame { position: relative; overflow: hidden; border-radius: 1.8rem; box-shadow: 0 30px 46px -26px rgba(22, 20, 18, 0.75); }
+.proto__frame iframe { position: absolute; left: 0; top: 0; max-width: none; border-radius: 0; box-shadow: none; transform-origin: 0 0; }
+
+/* Image viewer */
+.lightbox { width: 100vw; height: 100vh; max-width: none; max-height: none; margin: 0; padding: clamp(1rem, 4vw, 3rem); border: 0; background: transparent; color: var(--sheet); }
+.lightbox::backdrop { background: rgba(22, 20, 18, 0.88); }
+.lightbox__fig { height: 100%; margin: 0; display: grid; place-items: center; align-content: center; gap: 0.8rem; cursor: zoom-out; }
+.lightbox__fig img { max-width: 100%; max-height: calc(100vh - 7rem); width: auto; height: auto; cursor: default; box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6); }
+.lightbox .credit { color: var(--sheet); text-align: center; }
+.lightbox__close { position: fixed; top: 1rem; right: 1rem; z-index: 1; width: 3rem; height: 3rem; display: grid; place-items: center; font: 400 2.2rem/1 var(--label); color: var(--sheet); background: transparent; border: 2px solid currentColor; border-radius: 50%; cursor: pointer; transition: background 0.2s ease, color 0.2s ease; }
+.lightbox__close:hover, .lightbox__close:focus-visible { background: var(--sheet); color: var(--ink); }
+.is-viewing { overflow: hidden; }
 
 /* Cover: printed paper, and Diana behind it */
 .cover .pic img { filter: contrast(1.04); }

@@ -492,7 +492,7 @@ def top(current, inner=True):
 def contact_actions():
     out = f'<a class="btn btn--fill" href="mailto:{SITE["email"]}">Email Diana</a>'
     if SITE["linkedin"]:
-        out += f'<a class="btn" href="{SITE["linkedin"]}" rel="noopener">Connect on LinkedIn</a>'
+        out += f'<a class="btn" href="{SITE["linkedin"]}" target="_blank" rel="noopener">Connect on LinkedIn</a>'
     out += f'<a class="btn" href="{RESUME}" download>Download resume (PDF)</a>'
     return out
 
@@ -509,7 +509,7 @@ def callout(title_html, extra="", anchor=""):
 
 
 def foot(matter=False):
-    li = f'<a href="{SITE["linkedin"]}" rel="noopener">LinkedIn</a>' if SITE["linkedin"] else ""
+    li = f'<a href="{SITE["linkedin"]}" target="_blank" rel="noopener">LinkedIn</a>' if SITE["linkedin"] else ""
     return f"""<footer class="footer">
   <div class="wrap">
     <div class="circulation" data-circulation hidden>
@@ -629,7 +629,7 @@ def page_story(i):
             gal += f'<div class="proto"><video src="{g[1]}" controls muted playsinline preload="metadata" class="demo"></video><p class="credit">{e(g[2])}</p></div>'
             continue
         if isinstance(g, tuple) and g[0] == "embed":
-            gal += f'<div class="proto"><iframe src="{e(s["embed"])}" title="{e(s["title"])} prototype in Figma" loading="lazy" allowfullscreen></iframe><p class="credit">Tap through the live prototype. If it does not load, <a href="{e(s["link"][1])}" rel="noopener">open it in a new tab</a>.</p></div>'
+            gal += f'<div class="proto"><div class="proto__frame"><iframe src="{e(s["embed"])}" title="{e(s["title"])} prototype in Figma" loading="lazy" allowfullscreen data-fit="440x900" width="440" height="900"></iframe></div><p class="credit">Tap through the live prototype. If it does not load, <a href="{e(s["link"][1])}" target="_blank" rel="noopener">open it in a new tab</a>.</p></div>'
             continue
         if isinstance(g, tuple) and g[0] == "phones":
             gal += '<div class="phones">' + "".join(f'<figure class="phone"><a href="{img}" aria-label="Open {e(cap)} full size"><img src="{img}" alt="{e(cap)}" loading="lazy" width="390" height="844"></a><figcaption class="credit">{e(cap)}</figcaption></figure>' for cap, img in g[1]) + '</div>'
@@ -643,7 +643,7 @@ def page_story(i):
             gal += frame(*g)
     color = " pic--color" if s.get("color") else ""
     status = f'<span class="status pen">{e(s["status"])}</span>' if s.get("status") else ""
-    link = f'<p class="article__link"><a class="btn" href="{s["link"][1]}" rel="noopener">{e(s["link"][0])}</a></p>' if s.get("link") else ""
+    link = f'<p class="article__link"><a class="btn" href="{s["link"][1]}" target="_blank" rel="noopener">{e(s["link"][0])}</a></p>' if s.get("link") else ""
     return head(s["title"], s["deck"], s["slug"] + ".html", s.get("lead", s["img"])) + top("work") + f"""<main id="main">
   <article class="wrap">
     <header class="article__head">
@@ -666,7 +666,7 @@ def page_story(i):
 
 def page_about():
     exp = "".join(f'<li><span class="when">{e(w)}</span><div><h3>{e(t)}</h3><p>{e(d)}</p></div></li>' for w, t, d in EXPERIENCE)
-    li = f'<p><a href="{SITE["linkedin"]}" rel="noopener">LinkedIn</a></p>' if SITE["linkedin"] else ""
+    li = f'<p><a href="{SITE["linkedin"]}" target="_blank" rel="noopener">LinkedIn</a></p>' if SITE["linkedin"] else ""
     card = f'<div class="card"><p class="kicker kicker--red">Clip and keep</p><h3>{e(SITE["person"])}</h3><p>Graphic design, UI/UX, marketing<br>Vancouver, BC</p><p><a href="mailto:{SITE["email"]}">{SITE["email"]}</a></p>{li}</div>'
     return head("About", "About Diana (Yuhan) Kim: designer in Vancouver with a marketing and product background from Seoul.", "about.html", "assets/img/diana.jpg") + top("about") + f"""<main id="main">
   <article class="wrap">
