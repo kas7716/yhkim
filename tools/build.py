@@ -629,7 +629,7 @@ def page_story(i):
             gal += f'<div class="proto"><video src="{g[1]}" controls muted playsinline preload="metadata" class="demo"></video><p class="credit">{e(g[2])}</p></div>'
             continue
         if isinstance(g, tuple) and g[0] == "embed":
-            gal += f'<div class="proto"><div class="proto__frame"><iframe src="{e(s["embed"])}" title="{e(s["title"])} prototype in Figma" loading="lazy" allowfullscreen data-fit="440x900" width="440" height="900"></iframe></div><p class="credit">Tap through the live prototype. If it does not load, <a href="{e(s["link"][1])}" target="_blank" rel="noopener">open it in a new tab</a>.</p></div>'
+            gal += f'<div class="proto"><div class="proto__frame"><iframe src="{e(s["embed"])}" title="{e(s["title"])} prototype in Figma" loading="lazy" allowfullscreen data-fit="440x920" width="440" height="920"></iframe></div><p class="credit">Tap through the live prototype. If it does not load, <a href="{e(s["link"][1])}" target="_blank" rel="noopener">open it in a new tab</a>.</p></div>'
             continue
         if isinstance(g, tuple) and g[0] == "phones":
             gal += '<div class="phones">' + "".join(f'<figure class="phone"><a href="{img}" aria-label="Open {e(cap)} full size"><img src="{img}" alt="{e(cap)}" loading="lazy" width="390" height="844"></a><figcaption class="credit">{e(cap)}</figcaption></figure>' for cap, img in g[1]) + '</div>'
